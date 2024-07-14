@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616AB692C435C4D006D4D99 /* SignUpViewController.swift */; };
 		26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178D2C41D47F00E682E5 /* AppDelegate.swift */; };
 		26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */; };
 		26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA17912C41D47F00E682E5 /* ViewController.swift */; };
 		26BA17952C41D47F00E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17942C41D47F00E682E5 /* Base */; };
 		26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17962C41D48000E682E5 /* Assets.xcassets */; };
 		26BA179A2C41D48000E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17992C41D48000E682E5 /* Base */; };
+		26F9C0772C43720C00F2C4AF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 26F9C0762C43720C00F2C4AF /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2616AB692C435C4D006D4D99 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		26BA178A2C41D47F00E682E5 /* gymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA178D2C41D47F00E682E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		26BA17962C41D48000E682E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26BA17992C41D48000E682E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26BA179B2C41D48000E682E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26F9C0762C43720C00F2C4AF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		26BA178C2C41D47F00E682E5 /* gymBro */ = {
 			isa = PBXGroup;
 			children = (
-				26BA178D2C41D47F00E682E5 /* AppDelegate.swift */,
-				26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */,
-				26BA17912C41D47F00E682E5 /* ViewController.swift */,
+				26BA17A22C41D4D900E682E5 /* Model */,
+				26BA17A32C41D52500E682E5 /* AppDelegate */,
+				26BA17A12C41D4CC00E682E5 /* View */,
 				26BA17932C41D47F00E682E5 /* Main.storyboard */,
+				26BA17912C41D47F00E682E5 /* ViewController.swift */,
 				26BA17962C41D48000E682E5 /* Assets.xcassets */,
 				26BA17982C41D48000E682E5 /* LaunchScreen.storyboard */,
 				26BA179B2C41D48000E682E5 /* Info.plist */,
+				26F9C0762C43720C00F2C4AF /* .gitignore */,
 			);
 			path = gymBro;
+			sourceTree = "<group>";
+		};
+		26BA17A12C41D4CC00E682E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2616AB692C435C4D006D4D99 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26BA17A22C41D4D900E682E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26BA17A32C41D52500E682E5 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				26BA178D2C41D47F00E682E5 /* AppDelegate.swift */,
+				26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F9C0772C43720C00F2C4AF /* .gitignore in Resources */,
 				26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */,
 				26BA179A2C41D48000E682E5 /* Base in Resources */,
 				26BA17952C41D47F00E682E5 /* Base in Resources */,
@@ -140,6 +171,7 @@
 			files = (
 				26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */,
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
+				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +332,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +340,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = aduartee.gymBro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,6 +365,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,6 +373,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = aduartee.gymBro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
