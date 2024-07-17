@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var signInButton: UIButton!
-
+    
     @IBOutlet weak var gymBroImage: UIImageView!
     
     override func viewDidLoad() {
@@ -23,6 +24,35 @@ class ViewController: UIViewController {
         signInButton.layer.masksToBounds = true
         signInButton.layer.cornerRadius = 12
         self.navigationItem.hidesBackButton = true
+        testDatabaseInclude()
+    }
+    
+    func testDatabaseInclude() {
+        let email = "chuck norris"
+        let username = "chuck norris"
+//        let password = ""
+        
+        let userInstace = RegisterUserRequest(email: email, username: username, password: password)
+        
+        AuthService.shared.registerUser(user: userInstace) { data, error in
+            if let error = error as NSError? {
+                if error.domain == AuthErrorDomain {
+                    switch error.code {
+                    
+                    case AuthErrorCode.invalidEmail.rawValue:
+                        self.showCustomAlert(title: "Warning", message: "The email address is badly formatted.")
+                        return
+                    
+                    default:
+                        self.showCustomAlert(title: "Error", message: "Ops, error: \(error.localizedDescription)")
+                        return
+                    }
+                }
+                
+            }
+            
+            self.showCustomAlert(title: "Success", message: "The user was registered")
+        }
     }
     
     func animateLogo() {
@@ -38,7 +68,12 @@ class ViewController: UIViewController {
             
             navigationController?.pushViewController(signUpViewController, animated: true)
         }
-        
+    }
+    
+    func showCustomAlert(title: String, message: String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle:.alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
-
