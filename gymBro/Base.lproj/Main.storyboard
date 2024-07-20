@@ -68,6 +68,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                             <color key="baseBackgroundColor" red="0.0" green="0.74901960784313726" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ENj-SH-2Wa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -114,7 +117,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="uK1-84-nyF"/>
                     <connections>
+                        <outlet property="emailTextField" destination="rSN-8w-P1S" id="CwH-pm-Fmb"/>
                         <outlet property="gymBroImage" destination="bS4-D4-82u" id="QWH-jD-If0"/>
+                        <outlet property="passwordTextField" destination="jc8-kb-FtI" id="G3F-la-SKx"/>
                         <outlet property="signInButton" destination="SQi-4A-psI" id="0e6-Ax-dyW"/>
                     </connections>
                 </viewController>
@@ -137,15 +142,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdq-c5-ToA">
-                                <rect key="frame" x="60" y="159" width="273" height="71.666666666666686"/>
+                                <rect key="frame" x="60" y="139" width="273" height="71.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="BP8-bD-lZC">
-                                <rect key="frame" x="30" y="319.33333333333331" width="333" height="331.99999999999994"/>
+                                <rect key="frame" x="30" y="284.33333333333331" width="333" height="425.99999999999994"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kw9-J5-c4a">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kw9-J5-c4a">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
                                         <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -155,7 +160,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q19-KZ-02N">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q19-KZ-02N">
                                         <rect key="frame" x="0.0" y="94" width="333" height="60"/>
                                         <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -165,7 +170,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7S9-QD-m6r">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7S9-QD-m6r">
                                         <rect key="frame" x="0.0" y="188" width="333" height="60"/>
                                         <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -175,8 +180,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRJ-Xe-59k">
+                                        <rect key="frame" x="0.0" y="282.00000000000006" width="333" height="60"/>
+                                        <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Jma-GC-bZG"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVS-mO-J0M">
-                                        <rect key="frame" x="0.0" y="282.00000000000006" width="333" height="50"/>
+                                        <rect key="frame" x="0.0" y="376.00000000000006" width="333" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="vgR-gC-tYT"/>
                                         </constraints>
@@ -192,7 +207,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started with Gym Bro!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABA-Cl-BnP">
-                                <rect key="frame" x="10" y="240.66666666666666" width="373" height="28.666666666666657"/>
+                                <rect key="frame" x="10" y="220.66666666666666" width="373" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -202,7 +217,7 @@
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="4WN-lE-9Bw" firstAttribute="top" secondItem="akW-xk-o9j" secondAttribute="top" id="1dA-bZ-Pck"/>
-                            <constraint firstItem="Sdq-c5-ToA" firstAttribute="top" secondItem="4WN-lE-9Bw" secondAttribute="bottom" constant="20" id="407-od-LnS"/>
+                            <constraint firstItem="Sdq-c5-ToA" firstAttribute="top" secondItem="4WN-lE-9Bw" secondAttribute="bottom" id="407-od-LnS"/>
                             <constraint firstItem="akW-xk-o9j" firstAttribute="trailing" secondItem="BP8-bD-lZC" secondAttribute="trailing" constant="30" id="5xv-zq-g8A"/>
                             <constraint firstItem="BP8-bD-lZC" firstAttribute="leading" secondItem="akW-xk-o9j" secondAttribute="leading" constant="30" id="7nN-V5-4Ka"/>
                             <constraint firstItem="akW-xk-o9j" firstAttribute="trailing" secondItem="4WN-lE-9Bw" secondAttribute="trailing" constant="60" id="8CL-hw-q8m"/>
@@ -211,7 +226,7 @@
                             <constraint firstItem="akW-xk-o9j" firstAttribute="trailing" secondItem="ABA-Cl-BnP" secondAttribute="trailing" constant="10" id="K8R-bm-T5B"/>
                             <constraint firstItem="akW-xk-o9j" firstAttribute="trailing" secondItem="Sdq-c5-ToA" secondAttribute="trailing" constant="60" id="Mhe-nq-RiF"/>
                             <constraint firstItem="ABA-Cl-BnP" firstAttribute="leading" secondItem="akW-xk-o9j" secondAttribute="leading" constant="10" id="aIZ-ow-iUp"/>
-                            <constraint firstItem="BP8-bD-lZC" firstAttribute="top" secondItem="ABA-Cl-BnP" secondAttribute="bottom" constant="50" id="kwe-ja-JoM"/>
+                            <constraint firstItem="BP8-bD-lZC" firstAttribute="top" secondItem="ABA-Cl-BnP" secondAttribute="bottom" constant="35" id="kwe-ja-JoM"/>
                             <constraint firstItem="ABA-Cl-BnP" firstAttribute="top" secondItem="Sdq-c5-ToA" secondAttribute="bottom" constant="10" id="zW8-nh-Zcx"/>
                         </constraints>
                     </view>
@@ -223,6 +238,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DP-83-pHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1729.0076335877861" y="3.5211267605633805"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="nqB-KK-W5d">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="2MM-Os-VTp" customClass="HomeViewController" customModule="gymBro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yvo-7Z-TRi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgW-5G-RgQ">
+                                <rect key="frame" x="250" y="100" width="133" height="38"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout">
+                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonTap:" destination="2MM-Os-VTp" eventType="touchUpInside" id="HYL-XA-bEg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SbT-pD-Qde"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="IgW-5G-RgQ" firstAttribute="leading" secondItem="SbT-pD-Qde" secondAttribute="leading" constant="250" id="5tM-CZ-DN3"/>
+                            <constraint firstItem="SbT-pD-Qde" firstAttribute="trailing" secondItem="IgW-5G-RgQ" secondAttribute="trailing" constant="10" id="S84-Ap-Qoh"/>
+                            <constraint firstItem="IgW-5G-RgQ" firstAttribute="top" secondItem="Yvo-7Z-TRi" secondAttribute="top" constant="100" id="pYT-aL-DPH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoutLabel" destination="Yvo-7Z-TRi" id="B4Q-Wj-ipC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0s3-R8-ySF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2551.9083969465646" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XH9-qY-6tw">
@@ -247,6 +302,9 @@
         <image name="gymBroLogo" width="714" height="174"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
