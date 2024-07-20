@@ -59,7 +59,37 @@ class AuthService {
         }
     }
     
-    func SingInUser(with user: User) {
+    
+    /// This method is used to Sigin users on app
+    /// - Parameters:
+    ///   - user: Informations about authenticated user - Received this parametres: email and password
+    ///   - completion: The completion have one parametres
+    ///   - Error?: Is an optional value because it can exist or not, depending on the server's response.
+    func singInUser(with user: SignInUserRequest, completion: @escaping (Error?) -> Void) {
+        let email = user.email
+        let password = user.password
         
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            if let result = result {
+                completion(nil)
+            }
+        }
     }
+    
+    func logoutUser(completion: @escaping (Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(nil)
+        } catch let error {
+            completion(error)
+        }
+    }
+    
+      
 }
