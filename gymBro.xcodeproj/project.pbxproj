@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616AB692C435C4D006D4D99 /* SignUpViewController.swift */; };
+		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
+		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
 		26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178D2C41D47F00E682E5 /* AppDelegate.swift */; };
 		26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */; };
 		26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA17912C41D47F00E682E5 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		2616AB692C435C4D006D4D99 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
+		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
 		26BA178A2C41D47F00E682E5 /* gymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA178D2C41D47F00E682E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		263440642C4B4B3600F9726B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		26BA17812C41D47F00E682E5 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 		26BA178C2C41D47F00E682E5 /* gymBro */ = {
 			isa = PBXGroup;
 			children = (
+				263440642C4B4B3600F9726B /* Extensions */,
 				26E0B00C2C44A61E00C29539 /* Supporting Files */,
 				26E0B0092C449DDF00C29539 /* Services */,
 				26E0B0082C449DD400C29539 /* ViewModels */,
@@ -129,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				26E0B00A2C449E9000C29539 /* SignInViewModel.swift */,
+				263440622C4B434E00F9726B /* RegisterUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -234,10 +248,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */,
+				263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */,
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
 				26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */,
+				263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */,
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
 				26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,

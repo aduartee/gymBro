@@ -231,8 +231,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="confirmPasswordTextField" destination="7S9-QD-m6r" id="CL2-CD-Oba"/>
-                        <outlet property="passwordTextField" destination="q19-KZ-02N" id="sCu-oQ-2Tn"/>
+                        <outlet property="confirmPasswordTextField" destination="WRJ-Xe-59k" id="eKe-e1-yof"/>
+                        <outlet property="emailTextField" destination="q19-KZ-02N" id="1z8-vU-i8t"/>
+                        <outlet property="passwordTextField" destination="7S9-QD-m6r" id="aml-Gp-ouj"/>
+                        <outlet property="usernameTextField" destination="Kw9-J5-c4a" id="g2R-LC-239"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DP-83-pHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,22 +264,32 @@
                                     <action selector="logoutButtonTap:" destination="2MM-Os-VTp" eventType="touchUpInside" id="HYL-XA-bEg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Arthur 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6t-Er-wxF">
+                                <rect key="frame" x="20" y="119" width="183" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SbT-pD-Qde"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="R6t-Er-wxF" firstAttribute="leading" secondItem="SbT-pD-Qde" secondAttribute="leading" constant="20" id="4Ib-3F-VzN"/>
                             <constraint firstItem="IgW-5G-RgQ" firstAttribute="leading" secondItem="SbT-pD-Qde" secondAttribute="leading" constant="250" id="5tM-CZ-DN3"/>
                             <constraint firstItem="SbT-pD-Qde" firstAttribute="trailing" secondItem="IgW-5G-RgQ" secondAttribute="trailing" constant="10" id="S84-Ap-Qoh"/>
+                            <constraint firstItem="R6t-Er-wxF" firstAttribute="top" secondItem="SbT-pD-Qde" secondAttribute="top" constant="60" id="bmT-I6-fXw"/>
+                            <constraint firstItem="IgW-5G-RgQ" firstAttribute="leading" secondItem="R6t-Er-wxF" secondAttribute="trailing" constant="47" id="fzB-4K-aaC"/>
                             <constraint firstItem="IgW-5G-RgQ" firstAttribute="top" secondItem="Yvo-7Z-TRi" secondAttribute="top" constant="100" id="pYT-aL-DPH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="logoutLabel" destination="Yvo-7Z-TRi" id="B4Q-Wj-ipC"/>
+                        <outlet property="usernameLabel" destination="R6t-Er-wxF" id="cic-Jl-5xq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0s3-R8-ySF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2551.9083969465646" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2550.3816793893129" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XH9-qY-6tw">
