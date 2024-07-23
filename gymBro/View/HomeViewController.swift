@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var logoutLabel: UILabel!
-
+    @IBOutlet weak var usernameLabel: UILabel!
+    let currentUser = Auth.auth().currentUser?.displayName ?? ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
@@ -29,6 +32,8 @@ class HomeViewController: UIViewController {
     
     func configureLayout() {
         self.navigationItem.hidesBackButton = true
+        usernameLabel.text = "Hello, \(currentUser) 👋"
+        
     }
     
     func goToSingInVC(){

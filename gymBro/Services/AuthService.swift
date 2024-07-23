@@ -76,9 +76,7 @@ class AuthService {
                 return
             }
             
-            if let result = result {
-                completion(nil)
-            }
+            completion(nil)
         }
     }
     
