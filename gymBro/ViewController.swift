@@ -13,9 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var gymBroImage: UIImageView!
     var signInViewModel = SignInViewModel()
-    
+    @IBOutlet weak var signInUIButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
     @IBAction func signInTap(_ sender: Any) {
         signInViewModel.email = emailTextField.text ?? ""
         signInViewModel.password = passwordTextField.text ?? ""
+        signInUIButton.isEnabled = false
 
         signInViewModel.signIn { [weak self] error in
             guard let self = self else { return }
@@ -61,9 +63,8 @@ class ViewController: UIViewController {
                 if let navigationController = self.navigationController {
                     navigationController.pushViewController(homeVC, animated: true)
                 }
-            } else {
-                print("Não foi possível instanciar o HomeViewController")
             }
         }
+        signInUIButton.isEnabled = true
     }
 }
