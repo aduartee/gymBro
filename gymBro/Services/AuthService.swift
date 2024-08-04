@@ -54,7 +54,7 @@ class AuthService {
                         return
                     }
                 }
-            print("Sucess: The user was created \(result.uid)")
+
             completion(true, nil)
         }
     }
