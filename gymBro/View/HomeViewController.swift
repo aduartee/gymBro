@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func tapAddNewCategory(_ sender: Any) {
-        print("Hello")
+        goToRegisterTypeCategoryVC()
     }
     
     func configureLayout() {
@@ -95,6 +95,13 @@ class HomeViewController: UIViewController {
         if let editCategoryVC = storyboard?.instantiateViewController(withIdentifier: "editCategoryViewController") as? EditCategoryViewController {
             editCategoryVC.idCategory = idSelected
             present(editCategoryVC, animated: true)
+        }
+    }
+    
+    private func goToRegisterTypeCategoryVC() {
+        if let registerCategoryVC = storyboard?.instantiateViewController(withIdentifier: "RegisterTypeCategoryView") as? RegisterTypeCategoryViewController {
+            let navController = UINavigationController(rootViewController: registerCategoryVC)
+            present(navController, animated: true)
         }
     }
     
