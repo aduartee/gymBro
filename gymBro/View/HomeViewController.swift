@@ -8,6 +8,10 @@
 import UIKit
 import FirebaseAuth
 
+protocol CategoryExerciseDelegate: AnyObject {
+    func didAddCategoryExercise(newCategory: CategoryExerciseRequest)
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var logoutLabel: UILabel!
@@ -73,7 +77,9 @@ class HomeViewController: UIViewController {
             
             if let categorys = categorys {
                 self.data.append(contentsOf: categorys)
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -100,6 +106,7 @@ class HomeViewController: UIViewController {
     
     private func goToRegisterTypeCategoryVC() {
         if let registerCategoryVC = storyboard?.instantiateViewController(withIdentifier: "RegisterTypeCategoryView") as? RegisterTypeCategoryViewController {
+            registerCategoryVC.delegate = self
             let navController = UINavigationController(rootViewController: registerCategoryVC)
             present(navController, animated: true)
         }
@@ -118,8 +125,19 @@ class HomeViewController: UIViewController {
     
     private func removeRow(indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, _) in
-            guard let self = self else { return}
-            print("Remove")
+            guard let self = self else { return }
+            let idRow: String = data[indexPath.row].id
+            print(idRow)
+            
+            homeViewModel.removeSelectedRow(categoryExerciseId: idRow) { error in
+                if error != nil  {
+                    self.showCustomAlert(title: "Error", message: "Error to remove the selected row")
+                    return
+                }
+                
+                self.data.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            }
         }
         
         return action
@@ -140,7 +158,10 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let model = data[indexPath.item]
-        cell.textLabel?.text = model.categoryName
+        var content = cell.defaultContentConfiguration()
+        content.text = model.categoryName
+        content.secondaryText = model.weekDay
+        cell.contentConfiguration = content
         return cell
     }
     
@@ -161,5 +182,12 @@ extension HomeViewController: UITableViewDelegate {
         let deleteAction = removeRow(indexPath: indexPath)
         let swipeAction = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeAction
+    }
+}
+
+extension HomeViewController: CategoryExerciseDelegate {
+    func didAddCategoryExercise(newCategory: CategoryExerciseRequest) {
+        data.append(newCategory)
+        tableView.reloadData()
     }
 }

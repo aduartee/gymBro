@@ -8,7 +8,7 @@
 import Foundation
 
 struct CategoryExerciseRequest {
-    let id: String
+    var id: String
     let categoryName:String
     let description: String?
     let weekDay: String?
