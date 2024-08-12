@@ -12,7 +12,8 @@ class EditCategoryViewController: UIViewController {
     @IBOutlet weak var exerciceField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     @IBOutlet weak var weekDayPicker: UIPickerView!
-    let daysOfWeek: [String] = 
+    var editExerciceCategoryVM = EditExerciceCategoryViewModel()
+    let daysOfWeek: [String] =
     [
         "Sunday",
         "Monday",
@@ -31,7 +32,10 @@ class EditCategoryViewController: UIViewController {
     }
     
     func getExerciceCategory(idExerciceCategory: String) {
-        
+        editExerciceCategoryVM.getDataExerciceCategory(idExerciceCategory: idExerciceCategory) { [weak self] exerciseCategory, error in
+            guard let self = self else { return }
+            
+        }
     }
 }
 

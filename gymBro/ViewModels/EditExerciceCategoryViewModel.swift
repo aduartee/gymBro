@@ -8,14 +8,19 @@
 import Foundation
 
 struct EditExerciceCategoryViewModel {
-    let id: String
-    let categoryName: String
-    let description: String?
-    let weekDay: String?
+    var id: String = ""
+    var categoryName: String = ""
+    var description: String? = ""
+    var weekDay: String? = ""
     
-    func getDataExerciceCategory(idExerciceCategory: String) {
+    func getDataExerciceCategory(idExerciceCategory: String, completion: @escaping (CategoryExerciseRequest?, Error?) -> Void) {
         HomeService.shared.getExerciceCategoryById(categoryExerciceId: idExerciceCategory) { categoryExercice, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
             
+            completion(categoryExercice, nil)
         }
     }
 }
