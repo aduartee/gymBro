@@ -64,14 +64,126 @@ class HomeService {
 
             for document in documents {
                 let data = document.data()
-                print(data)
                 let id = document.documentID
                 let name = data["name"] as? String ?? ""
-                let categoryExercice = CategoryExerciseRequest(id: id, categoryName: name)
+                let description: String? = data["description"] as? String ?? ""
+                let wekDay = data["weekDay"] as? String ?? ""
+                let categoryExercice = CategoryExerciseRequest(id: id, categoryName: name, description: description, weekDay: wekDay)
                 categoryExercices.append(categoryExercice)
             }
                         
             completion(categoryExercices, nil)
+        }
+    }
+    
+    func getExerciceCategoryById(categoryExerciceId: String, completion: @escaping (CategoryExerciseRequest?, Error?) -> Void) {
+        guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
+            completion(nil ,NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))
+            return
+        }
+        
+        let userDocument = dbFirebase.collection("users").document(uidCurrentUser)
+        userDocument.collection("categoryExercices").document(categoryExerciceId).getDocument { document, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            guard let document = document, document.exists, let data = document.data() else {
+                completion(nil, NSError(domain: "FirebaseError", code: 2, userInfo: [NSLocalizedDescriptionKey: "Document does not exist"]))
+                return
+            }
+         
+            let categoryExercice = CategoryExerciseRequest(
+                id: categoryExerciceId,
+                categoryName: data["name"] as? String ?? "",
+                description: data["description"] as? String ?? "",
+                weekDay: data["weekDay"] as? String ?? ""
+            )
+            
+            completion(categoryExercice, nil)
+        }
+    }
+    
+    
+    /// Function to edit values in Db
+    /// - Parameters:
+    ///   - categoryExercise: Must contain the following values: id of category, name, description(optional), weekDay(optional)
+    ///   - completion: returns the object CategoryRequest, it's going to use is ViewModel
+    func editCategoryExcecise(categoryExercise: CategoryExerciseRequest, completion: @escaping (CategoryExerciseRequest?, Error?) -> Void) {
+        guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
+            completion(nil ,NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))
+            return
+        }
+        
+        let userDocument = dbFirebase.collection("users").document(uidCurrentUser)
+        let exerciseDocument = userDocument.collection("categoryExercices").document(categoryExercise.id)
+        
+        let valuesUpdate:[String: String] =
+        [
+            "name": categoryExercise.categoryName,
+            "description": categoryExercise.description ?? "",
+            "weekDay": categoryExercise.weekDay ?? ""
+        ]
+        
+        exerciseDocument.updateData(valuesUpdate) { error in
+            if let error = error{
+                completion(nil, error)
+                return
+            }
+            
+            completion(categoryExercise, nil)
+        }
+    }
+    
+    func saveExerciceCategory(categoryExercise: CategoryExerciseRequest ,completion: @escaping (String?, Error?) -> Void) {
+        guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
+            completion(nil, NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))
+            return
+        }
+        
+        let categoryName = categoryExercise.categoryName
+        let description = categoryExercise.description ?? ""
+        let weekDay = categoryExercise.weekDay ?? ""
+        let documentUser = dbFirebase.collection("users").document(uidCurrentUser)
+        let categoryExercice = documentUser.collection("categoryExercices")
+        
+        let categoryData: [String: String] = [
+            "name": categoryName,
+            "description": description,
+            "weekDay": weekDay
+        ]
+        
+        let documentReference = categoryExercice.addDocument(data: categoryData) { error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+        }
+        
+        completion(documentReference.documentID, nil)
+    }
+    
+    func deleteExerciseCategory(categoryExerciceId: String, completion: @escaping (Error?) -> Void) {
+        guard !categoryExerciceId.isEmpty else {
+            completion(NSError(domain: "FirebaseError", code: 2, userInfo: [NSLocalizedDescriptionKey: "Document path cannot be empty."]))
+            return
+        }
+        
+        guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))
+            return
+        }
+        
+        let categoryExercice = dbFirebase.collection("users").document(uidCurrentUser).collection("categoryExercices").document(categoryExerciceId)
+        
+        categoryExercice.delete { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            completion(nil)
         }
     }
 }

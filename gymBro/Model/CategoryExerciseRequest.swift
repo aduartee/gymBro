@@ -8,8 +8,10 @@
 import Foundation
 
 struct CategoryExerciseRequest {
-    let id: String
+    var id: String
     let categoryName:String
+    let description: String?
+    let weekDay: String?
     // let exercices: [ExerciseModel]
     // let typeIcon: String
     // let weekDay: String // This property is used for the user to register which day of the week the exercise will be performed, Example: Monday, Tuesday...

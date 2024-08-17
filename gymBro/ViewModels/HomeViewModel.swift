@@ -41,6 +41,16 @@ struct HomeViewModel {
             
             completion(categoryName, nil)
         }
-        
+    }
+    
+    public func removeSelectedRow(categoryExerciseId: String, completion: @escaping (Error?) -> Void) {
+        HomeService.shared.deleteExerciseCategory(categoryExerciceId: categoryExerciseId) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }
     }
 }

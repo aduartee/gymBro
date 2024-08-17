@@ -8,6 +8,14 @@
 import UIKit
 import FirebaseAuth
 
+protocol CategoryExerciseDelegate: AnyObject {
+    func didAddCategoryExercise(newCategory: CategoryExerciseRequest)
+}
+
+protocol EditCategoryExerciseDelegate: AnyObject {
+    func didEditCategoryExercise(categoryExercice: CategoryExerciseRequest)
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var logoutLabel: UILabel!
@@ -16,13 +24,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addNewCategoryButton: UIButton!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
-    var selectedRowId: String = ""
+    private var selectedRowId: String = ""
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         showExercicesCategory()
     }
     
@@ -38,7 +49,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func tapAddNewCategory(_ sender: Any) {
-        print("Hello")
+        goToRegisterTypeCategoryVC()
     }
     
     func configureLayout() {
@@ -47,12 +58,18 @@ class HomeViewController: UIViewController {
         showUsernameLabel()
     }
     
+    @objc func refreshData() {
+        
+        self.refreshControl.endRefreshing()
+        showExercicesCategory()
+    }
+    
     func showUsernameLabel() {
         homeViewModel.getUsernameCurretUser { [weak self] username, error in
             guard let self = self else { return }
             
             if error != nil {
-                self.usernameLabel.text = "Unknown"
+                self.usernameLabel.text = "Unknown 😞"
                 return
             }
             
@@ -72,8 +89,11 @@ class HomeViewController: UIViewController {
             }
             
             if let categorys = categorys {
+                self.data.removeAll()
                 self.data.append(contentsOf: categorys)
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -94,7 +114,16 @@ class HomeViewController: UIViewController {
     private func sendValuesAndGoToEditCategoryVC(with idSelected: String) {
         if let editCategoryVC = storyboard?.instantiateViewController(withIdentifier: "editCategoryViewController") as? EditCategoryViewController {
             editCategoryVC.idCategory = idSelected
+            editCategoryVC.delegate = self
             present(editCategoryVC, animated: true)
+        }
+    }
+    
+    private func goToRegisterTypeCategoryVC() {
+        if let registerCategoryVC = storyboard?.instantiateViewController(withIdentifier: "RegisterTypeCategoryView") as? RegisterTypeCategoryViewController {
+            registerCategoryVC.delegate = self
+            let navController = UINavigationController(rootViewController: registerCategoryVC)
+            present(navController, animated: true)
         }
     }
     
@@ -111,8 +140,19 @@ class HomeViewController: UIViewController {
     
     private func removeRow(indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, _) in
-            guard let self = self else { return}
-            print("Remove")
+            guard let self = self else { return }
+            let idRow: String = data[indexPath.row].id
+            print(idRow)
+            
+            homeViewModel.removeSelectedRow(categoryExerciseId: idRow) { error in
+                if error != nil  {
+                    self.showCustomAlert(title: "Error", message: "Error to remove the selected row")
+                    return
+                }
+                
+                self.data.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            }
         }
         
         return action
@@ -133,7 +173,10 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let model = data[indexPath.item]
-        cell.textLabel?.text = model.categoryName
+        var content = cell.defaultContentConfiguration()
+        content.text = model.categoryName
+        content.secondaryText = model.weekDay
+        cell.contentConfiguration = content
         return cell
     }
     
@@ -154,5 +197,23 @@ extension HomeViewController: UITableViewDelegate {
         let deleteAction = removeRow(indexPath: indexPath)
         let swipeAction = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeAction
+    }
+}
+
+extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {
+    func didEditCategoryExercise(categoryExercice: CategoryExerciseRequest) {
+        
+        if let index = self.data.firstIndex(where: {$0.id == categoryExercice.id}) {
+            self.data[index] = categoryExercice
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+            
+        }
+    }
+    
+    func didAddCategoryExercise(newCategory: CategoryExerciseRequest) {
+        data.append(newCategory)
+        tableView.reloadData()
     }
 }

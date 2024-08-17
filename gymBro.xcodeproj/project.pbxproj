@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */; };
 		2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616AB692C435C4D006D4D99 /* SignUpViewController.swift */; };
 		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
 		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
@@ -14,6 +15,8 @@
 		269571732C5438040054021B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571722C5438040054021B /* HomeService.swift */; };
 		269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571742C543B660054021B /* CategoryExerciseRequest.swift */; };
 		26A634A02C55C66B004D3937 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6349F2C55C66B004D3937 /* ExerciseModel.swift */; };
+		26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */; };
+		26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */; };
 		26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178D2C41D47F00E682E5 /* AppDelegate.swift */; };
 		26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */; };
 		26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA17912C41D47F00E682E5 /* ViewController.swift */; };
@@ -37,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciceCategoryViewModel.swift; sourceTree = "<group>"; };
 		2616AB692C435C4D006D4D99 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		269571722C5438040054021B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		269571742C543B660054021B /* CategoryExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExerciseRequest.swift; sourceTree = "<group>"; };
 		26A6349F2C55C66B004D3937 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
+		26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewModel.swift; sourceTree = "<group>"; };
+		26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewController.swift; sourceTree = "<group>"; };
 		26BA178A2C41D47F00E682E5 /* gymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA178D2C41D47F00E682E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 				26E69AE22C4976AC00F52FBB /* HomeViewController.swift */,
 				26E0B9ED2C594056002C29B2 /* RegisterCategoryViewController.swift */,
 				26F0CC542C5BE1490006EDF3 /* EditCategoryViewController.swift */,
+				26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +167,8 @@
 				26E0B00A2C449E9000C29539 /* SignInViewModel.swift */,
 				263440622C4B434E00F9726B /* RegisterUserViewModel.swift */,
 				266324D42C4FF68B006B5096 /* HomeViewModel.swift */,
+				26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */,
+				260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -269,6 +278,7 @@
 				26E0B9EE2C594056002C29B2 /* RegisterCategoryViewController.swift in Sources */,
 				263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */,
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
+				26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
 				26A634A02C55C66B004D3937 /* ExerciseModel.swift in Sources */,
@@ -278,8 +288,10 @@
 				269571732C5438040054021B /* HomeService.swift in Sources */,
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
 				26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */,
+				260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */,
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
+				26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */,
 				26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */,
 				26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */,
 			);
