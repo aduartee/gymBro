@@ -66,7 +66,6 @@ class RegisterTypeCategoryViewController: UIViewController {
             }
             
             if let category = category {
-                print(category)
                 delegate?.didAddCategoryExercise(newCategory: category)
             }
             

@@ -105,6 +105,37 @@ class HomeService {
         }
     }
     
+    
+    /// Function to edit values in Db
+    /// - Parameters:
+    ///   - categoryExercise: Must contain the following values: id of category, name, description(optional), weekDay(optional)
+    ///   - completion: returns the object CategoryRequest, it's going to use is ViewModel
+    func editCategoryExcecise(categoryExercise: CategoryExerciseRequest, completion: @escaping (CategoryExerciseRequest?, Error?) -> Void) {
+        guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
+            completion(nil ,NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))
+            return
+        }
+        
+        let userDocument = dbFirebase.collection("users").document(uidCurrentUser)
+        let exerciseDocument = userDocument.collection("categoryExercices").document(categoryExercise.id)
+        
+        let valuesUpdate:[String: String] =
+        [
+            "name": categoryExercise.categoryName,
+            "description": categoryExercise.description ?? "",
+            "weekDay": categoryExercise.weekDay ?? ""
+        ]
+        
+        exerciseDocument.updateData(valuesUpdate) { error in
+            if let error = error{
+                completion(nil, error)
+                return
+            }
+            
+            completion(categoryExercise, nil)
+        }
+    }
+    
     func saveExerciceCategory(categoryExercise: CategoryExerciseRequest ,completion: @escaping (String?, Error?) -> Void) {
         guard let uidCurrentUser = Auth.auth().currentUser?.uid else {
             completion(nil, NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No current user"]))

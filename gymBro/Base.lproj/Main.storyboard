@@ -494,7 +494,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFJ-d7-GAY">
-                                <rect key="frame" x="20" y="343" width="353" height="100"/>
+                                <rect key="frame" x="20" y="342.66666666666669" width="353" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Ick-p7-dQu"/>
                                 </constraints>
@@ -510,6 +510,7 @@
                                     <color key="baseBackgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="saveButtonTap:" destination="WFF-x1-AwI" eventType="touchUpInside" id="mVk-Ta-paI"/>
                                     <action selector="tapSaveButton:" destination="vLE-cu-AVY" eventType="touchUpInside" id="q9W-wE-KKB"/>
                                 </connections>
                             </button>

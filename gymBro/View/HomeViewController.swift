@@ -12,6 +12,10 @@ protocol CategoryExerciseDelegate: AnyObject {
     func didAddCategoryExercise(newCategory: CategoryExerciseRequest)
 }
 
+protocol EditCategoryExerciseDelegate: AnyObject {
+    func didEditCategoryExercise(categoryExercice: CategoryExerciseRequest)
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var logoutLabel: UILabel!
@@ -20,13 +24,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addNewCategoryButton: UIButton!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
-    var selectedRowId: String = ""
+    private var selectedRowId: String = ""
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         showExercicesCategory()
     }
     
@@ -51,12 +58,18 @@ class HomeViewController: UIViewController {
         showUsernameLabel()
     }
     
+    @objc func refreshData() {
+        
+        self.refreshControl.endRefreshing()
+        showExercicesCategory()
+    }
+    
     func showUsernameLabel() {
         homeViewModel.getUsernameCurretUser { [weak self] username, error in
             guard let self = self else { return }
             
             if error != nil {
-                self.usernameLabel.text = "Unknown"
+                self.usernameLabel.text = "Unknown 😞"
                 return
             }
             
@@ -76,6 +89,7 @@ class HomeViewController: UIViewController {
             }
             
             if let categorys = categorys {
+                self.data.removeAll()
                 self.data.append(contentsOf: categorys)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -100,6 +114,7 @@ class HomeViewController: UIViewController {
     private func sendValuesAndGoToEditCategoryVC(with idSelected: String) {
         if let editCategoryVC = storyboard?.instantiateViewController(withIdentifier: "editCategoryViewController") as? EditCategoryViewController {
             editCategoryVC.idCategory = idSelected
+            editCategoryVC.delegate = self
             present(editCategoryVC, animated: true)
         }
     }
@@ -185,7 +200,18 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: CategoryExerciseDelegate {
+extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {
+    func didEditCategoryExercise(categoryExercice: CategoryExerciseRequest) {
+        
+        if let index = self.data.firstIndex(where: {$0.id == categoryExercice.id}) {
+            self.data[index] = categoryExercice
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+            
+        }
+    }
+    
     func didAddCategoryExercise(newCategory: CategoryExerciseRequest) {
         data.append(newCategory)
         tableView.reloadData()
