@@ -439,48 +439,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q7O-g2-I2E">
-                                <rect key="frame" x="0.0" y="202" width="393" height="650"/>
+                                <rect key="frame" x="0.0" y="232" width="393" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="650" id="aBD-pz-dte"/>
+                                    <constraint firstAttribute="height" constant="620" id="aBD-pz-dte"/>
                                 </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEm-KH-PQd">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="202"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="232"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDg-sW-8Vg">
-                                        <rect key="frame" x="19.999999999999993" y="64" width="117.33333333333331" height="33"/>
+                                        <rect key="frame" x="19.999999999999986" y="124" width="255.66666666666663" height="33"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pea-My-Awh">
-                                        <rect key="frame" x="287.33333333333331" y="60" width="85.666666666666686" height="48"/>
+                                        <rect key="frame" x="275.66666666666669" y="130" width="112.33333333333331" height="8"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="28"/>
                                         </buttonConfiguration>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYI-6v-IMF">
-                                        <rect key="frame" x="16" y="102" width="357" height="70"/>
+                                        <rect key="frame" x="22" y="162" width="351" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="aiz-Ke-8Hk"/>
+                                            <constraint firstAttribute="height" constant="60" id="aiz-Ke-8Hk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                         <color key="textColor" red="0.14919283850000001" green="0.2142320502" blue="0.97021478409999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m44-6D-KYz">
+                                        <rect key="frame" x="8" y="50" width="44.333333333333336" height="72"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="22" scale="large"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButton:" destination="8ZZ-cR-Q4Z" eventType="touchUpInside" id="1lu-mU-Zd6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
-                                    <constraint firstItem="OYI-6v-IMF" firstAttribute="leading" secondItem="iEm-KH-PQd" secondAttribute="leading" constant="16" id="2ij-LF-lWI"/>
-                                    <constraint firstItem="Pea-My-Awh" firstAttribute="top" secondItem="iEm-KH-PQd" secondAttribute="top" constant="60" id="4Bk-Tp-GBv"/>
+                                    <constraint firstItem="m44-6D-KYz" firstAttribute="top" secondItem="iEm-KH-PQd" secondAttribute="top" constant="50" id="1Uz-Rx-pni"/>
+                                    <constraint firstItem="OYI-6v-IMF" firstAttribute="leading" secondItem="iEm-KH-PQd" secondAttribute="leading" constant="22" id="2ij-LF-lWI"/>
+                                    <constraint firstItem="Pea-My-Awh" firstAttribute="top" secondItem="iEm-KH-PQd" secondAttribute="top" constant="130" id="4Bk-Tp-GBv"/>
+                                    <constraint firstItem="Pea-My-Awh" firstAttribute="leading" secondItem="m44-6D-KYz" secondAttribute="trailing" constant="223.33000000000001" id="4i0-JZ-EPQ"/>
                                     <constraint firstAttribute="width" constant="393" id="8i9-wo-AKn"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pea-My-Awh" secondAttribute="trailing" constant="20" id="CpD-Z4-e5I"/>
+                                    <constraint firstItem="GDg-sW-8Vg" firstAttribute="top" secondItem="m44-6D-KYz" secondAttribute="bottom" constant="2" id="9oT-Ny-nrL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pea-My-Awh" secondAttribute="trailing" constant="5" id="CpD-Z4-e5I"/>
                                     <constraint firstAttribute="bottom" secondItem="Pea-My-Awh" secondAttribute="bottom" constant="94" id="DlA-Et-ZNF"/>
-                                    <constraint firstAttribute="bottom" secondItem="OYI-6v-IMF" secondAttribute="bottom" constant="30" id="TmV-7x-1TF"/>
+                                    <constraint firstItem="m44-6D-KYz" firstAttribute="leading" secondItem="iEm-KH-PQd" secondAttribute="leading" constant="8" id="Ncj-DU-lTK"/>
+                                    <constraint firstAttribute="bottom" secondItem="OYI-6v-IMF" secondAttribute="bottom" constant="10" id="TmV-7x-1TF"/>
                                     <constraint firstItem="OYI-6v-IMF" firstAttribute="top" secondItem="GDg-sW-8Vg" secondAttribute="bottom" constant="5" id="jeg-yc-2Sb"/>
-                                    <constraint firstItem="Pea-My-Awh" firstAttribute="leading" secondItem="GDg-sW-8Vg" secondAttribute="trailing" constant="150" id="pAU-cV-V9J"/>
+                                    <constraint firstItem="Pea-My-Awh" firstAttribute="leading" secondItem="GDg-sW-8Vg" secondAttribute="trailing" id="pAU-cV-V9J"/>
                                     <constraint firstAttribute="trailing" secondItem="OYI-6v-IMF" secondAttribute="trailing" constant="20" id="pR2-3z-HEm"/>
                                     <constraint firstItem="GDg-sW-8Vg" firstAttribute="leading" secondItem="iEm-KH-PQd" secondAttribute="leading" constant="20" id="pt6-az-KGB"/>
                                 </constraints>
@@ -499,6 +513,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="m44-6D-KYz" id="is5-3d-GFp"/>
                         <outlet property="headerDescription" destination="OYI-6v-IMF" id="JZo-dv-ZAT"/>
                         <outlet property="headerLabel" destination="GDg-sW-8Vg" id="a3X-yH-79w"/>
                         <outlet property="headerView" destination="iEm-KH-PQd" id="FsU-zT-7FE"/>
@@ -632,6 +647,7 @@
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="gymBroLogo" width="714" height="174"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">

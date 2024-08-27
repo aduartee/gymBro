@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ExerciseModel {
-    let id: Int
+struct ExerciseRequest {
+    let id: String
     let name: String
-//    let sets: Int
-//    let repetitions: Int
+    let series: Int
+    let repetitions: Int
 }
