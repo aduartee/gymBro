@@ -17,7 +17,6 @@ protocol EditCategoryExerciseDelegate: AnyObject {
 }
 
 class HomeViewController: UIViewController {
-    
     @IBOutlet weak var logoutLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -38,9 +37,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTap(_ sender: Any) {
-        AuthService.shared.logoutUser { error in
+        AuthService.shared.logoutUser { [weak self] error in
+            guard let self = self else { return }
             if let error = error {
-                print(error)
+                self.showCustomAlert(title: "Warning", message: ("\(error)"))
                 return
             }
             
@@ -59,7 +59,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc func refreshData() {
-        
         self.refreshControl.endRefreshing()
         showExercicesCategory()
     }
@@ -115,6 +114,15 @@ class HomeViewController: UIViewController {
         if let editCategoryVC = storyboard?.instantiateViewController(withIdentifier: "editCategoryViewController") as? EditCategoryViewController {
             editCategoryVC.idCategory = idSelected
             editCategoryVC.delegate = self
+            if let sheet = editCategoryVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { context in
+                    return context.maximumDetentValue * 0.72
+                }
+                
+                sheet.detents = [customDetent, .large()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+            }
             present(editCategoryVC, animated: true)
         }
     }
@@ -176,6 +184,7 @@ extension HomeViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
         content.text = model.categoryName
         content.secondaryText = model.weekDay
+        content.secondaryTextProperties.color = .systemBlue
         cell.contentConfiguration = content
         return cell
     }

@@ -31,6 +31,8 @@ class EditCategoryViewController: UIViewController {
         guard let idCategory = idCategory else { return }
         weekDayPicker.delegate = self
         weekDayPicker.dataSource = self
+        let fieldsInView: [UITextField]? = [exerciceField, descriptionField]
+        customTextFields(to: fieldsInView)
         getExerciceCategory(idExerciceCategory: idCategory)
     }
     
@@ -91,6 +93,15 @@ extension EditCategoryViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return daysOfWeek[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = view as? UILabel ?? UILabel()
+        pickerLabel.text = daysOfWeek[row]
+        pickerLabel.font = UIFont(name: "Helvetica", size: 21)
+        pickerLabel.textColor = .systemBlue
+        pickerLabel.textAlignment = .center
+        return pickerLabel
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
