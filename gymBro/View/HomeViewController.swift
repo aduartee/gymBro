@@ -17,7 +17,6 @@ protocol EditCategoryExerciseDelegate: AnyObject {
 }
 
 class HomeViewController: UIViewController {
-    
     @IBOutlet weak var logoutLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -115,6 +114,15 @@ class HomeViewController: UIViewController {
         if let editCategoryVC = storyboard?.instantiateViewController(withIdentifier: "editCategoryViewController") as? EditCategoryViewController {
             editCategoryVC.idCategory = idSelected
             editCategoryVC.delegate = self
+            if let sheet = editCategoryVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { context in
+                    return context.maximumDetentValue * 0.72
+                }
+                
+                sheet.detents = [customDetent, .large()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+            }
             present(editCategoryVC, animated: true)
         }
     }

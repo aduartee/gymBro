@@ -87,4 +87,34 @@ class ExerciseService {
             completion(exercisesModel, nil)            
         }
     }
+    
+    public func registerNewExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+        guard let uid = getUserId() else {
+            let error = createNSError(domain: "AuthError", description: "No current user")
+            completion(nil, error)
+            return
+        }
+        
+        let exerciseCollection = db.collection("users").document(uid).collection("categoryExercices").document(categoryId).collection("exercices")
+        
+        let exerciseName: String = exerciseRequest.name
+        let series: Int = exerciseRequest.series
+        let reps: Int = exerciseRequest.repetitions
+        
+        let exerciseData: [String: Any] = [
+            "name": exerciseName,
+            "series": series,
+            "repetitions" : reps
+        ]
+        
+        let documentReference = exerciseCollection.addDocument(data: exerciseData) { error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+        }
+        
+        let exerciseInstance = ExerciseRequest(id: documentReference.documentID, name: exerciseName, series: series, repetitions: reps)
+        completion(exerciseInstance, nil)
+    }
 }
