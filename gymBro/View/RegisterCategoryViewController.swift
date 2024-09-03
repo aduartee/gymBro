@@ -10,6 +10,11 @@ import UIKit
 protocol RegisterExerciseDelegate: AnyObject {
     func didRegisterExerciseDelegate(exerciseRequest: ExerciseRequest)
 }
+
+protocol EditExerciseDelegate: AnyObject {
+    func didEditExerciseDelegate(exerciseRequest: ExerciseRequest)
+}
+
 class RegisterCategoryViewController: UIViewController {
     var idCategory: String?
     @IBOutlet weak var tableView: UITableView!
@@ -111,18 +116,61 @@ class RegisterCategoryViewController: UIViewController {
         }
     }
     
+    func goToEditView(selectedRowexerciseId: String) {
+        if let editExerciseVC = storyboard?.instantiateViewController(withIdentifier: "editExerciseVC") as? EditExerciseViewController {
+            
+            if let sheet = editExerciseVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { context in
+                    return context.maximumDetentValue * 0.75
+                }
+                
+                sheet.detents = [customDetent, .large()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+            }
+            
+            guard let idCategory = idCategory else { return }
+            editExerciseVC.delegate = self
+            editExerciseVC.idCategory = idCategory
+            editExerciseVC.exerciseId = selectedRowexerciseId
+            present(editExerciseVC, animated: true)
+        }
+    }
+    
     @IBAction func registerExerciseButton(_ sender: Any) {
         goToRegisterView()
     }
     
-    func showEmptyMessage() {
+    private func showEmptyMessage() {
         messageLabel.text = "No exercises added yet. Please add a new exercise to the list."
         messageLabel.textAlignment = .center
         messageLabel.textColor = .gray
         messageLabel.font = UIFont.systemFont(ofSize: 16)
         messageLabel.numberOfLines = 0
         tableView.backgroundView = messageView
+    }
+    
+    private func editRow(indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Edit") {  [weak self] (_, _, _) in
+            guard let self = self else { return }
+            let selectedRowId = data[indexPath.row].id
+            goToEditView(selectedRowexerciseId: selectedRowId)
+        }
+
+        action.backgroundColor = .blue
+        return action
+    }
+    
+    
+    private func removeRow(indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Edit") {  [weak self] (_, _, _) in
+            guard let self = self else { return }
+            let selectedRowId = data[indexPath.row].id
+            goToEditView(selectedRowexerciseId: selectedRowId)
+        }
         
+        action.backgroundColor = .red
+        return action
     }
 }
 
@@ -143,13 +191,24 @@ extension RegisterCategoryViewController: UITableViewDataSource, UITableViewDele
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = editRow(indexPath: indexPath)
+        let removeAction = removeRow(indexPath: indexPath)
+        let swipeActions = UISwipeActionsConfiguration(actions: [removeAction, editAction])
+        return swipeActions
+    }
 }
 
-extension RegisterCategoryViewController: RegisterExerciseDelegate {
+extension RegisterCategoryViewController: RegisterExerciseDelegate, EditExerciseDelegate {
     func didRegisterExerciseDelegate(exerciseRequest: ExerciseRequest) {
         DispatchQueue.main.async {
             self.data.append(exerciseRequest)
             self.tableView.reloadData()
         }
+    }
+    
+    func didEditExerciseDelegate(exerciseRequest: ExerciseRequest) {
+        
     }
 }

@@ -88,6 +88,44 @@ class ExerciseService {
         }
     }
     
+    public func fetchExerciseById(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+        guard let uid = getUserId() else {
+            let error = createNSError(domain: "AuthError", description: "No current user")
+            completion(nil, error)
+            return
+        }
+        
+        let userDocument = db.collection("users").document(uid)
+
+        print(idCategory)
+        print(exerciseId)
+        
+        userDocument.collection("categoryExercices").document(idCategory).collection("exercices").document(exerciseId).getDocument { document, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            guard let document = document, document.exists, let data = document.data() else {
+                let error = self.createNSError(domain: "FirebaseError", description: "Exercise doesn't exist")
+                completion(nil, error)
+                return
+            }
+            
+            let exerciseInstace = ExerciseRequest(
+                id: exerciseId,
+                name: data["name"] as? String ?? "",
+                series: data["series"] as? Int ?? 1,
+                repetitions: data["repetitions"] as? Int ?? 1
+            )
+            
+            completion(exerciseInstace, nil)
+        }
+        
+        
+        
+    }
+    
     public func registerNewExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
         guard let uid = getUserId() else {
             let error = createNSError(domain: "AuthError", description: "No current user")
