@@ -44,21 +44,20 @@ class RegisterExerciseViewController: UIViewController {
     
     
     @IBAction func saveButton(_ sender: Any) {
-        let arrayIntValuesSeries: [Int] = [2, 3, 4]
         guard let idCategory = self.idCategory else { return }
         guard let exerciseName = exerciseNameTextLabel.text, !exerciseName.isEmpty else {
             showCustomAlert(title: "Warning", message: "The name of exercise can't be empty")
             return
         }
         let selectedSerieIndex = seriesSegmentedControl.selectedSegmentIndex
-        let selectedSerieValue = arrayIntValuesSeries[selectedSerieIndex]
+        let selectedSerieValue = seriesSegmentedControl.titleForSegment(at: selectedSerieIndex)
         let selectedRow = numberOfRepsPicker.selectedRow(inComponent: 0)
         let selectedRepValue = numberOfSeries[selectedRow]
         
         registerViewModel = RegisterExerciseViewModel(
             categoryId: idCategory,
             name: exerciseName,
-            series: selectedSerieValue,
+            series: selectedSerieValue ?? "",
             repetitions: Int(selectedRepValue) ?? 1
         )
         

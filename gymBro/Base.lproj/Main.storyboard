@@ -661,7 +661,122 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xk2-3Z-2wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4100" y="-1.4084507042253522"/>
+            <point key="canvasLocation" x="4091" y="-273"/>
+        </scene>
+        <!--Edit Exercise View Controller-->
+        <scene sceneID="Afr-u8-JHb">
+            <objects>
+                <viewController storyboardIdentifier="editExerciseVC" id="qFX-Ru-rUY" customClass="EditExerciseViewController" customModule="gymBro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Pq-V1-vTO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8sD-5g-b7B">
+                                <rect key="frame" x="16" y="197" width="361" height="44"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0Ao-pz-f9n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y4-z9-uv9">
+                                <rect key="frame" x="16" y="166" width="185" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-uR-i2C">
+                                <rect key="frame" x="16" y="271" width="77" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-Dr-JbS">
+                                <rect key="frame" x="16" y="99" width="237" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" red="0.1375330867" green="0.33843220559999998" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="INo-dk-uoG">
+                                <rect key="frame" x="16" y="302" width="177" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cgN-jd-iGH"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD9-EK-35R">
+                                <rect key="frame" x="16" y="382" width="57" height="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyy-eG-hpk">
+                                <rect key="frame" x="16" y="407" width="177" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="DN6-Bc-G0F"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-ev-Leb">
+                                <rect key="frame" x="100" y="547" width="193" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LhU-1m-xcj"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                    <color key="baseBackgroundColor" red="0.1375330867" green="0.33843220559999998" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="editExerciseTap:" destination="qFX-Ru-rUY" eventType="touchUpInside" id="2Gd-1t-8O4"/>
+                                    <action selector="saveButton:" destination="iXi-YX-s7m" eventType="touchUpInside" id="4bN-gP-sMA"/>
+                                    <action selector="saveButtonTap:" destination="WFF-x1-AwI" eventType="touchUpInside" id="Ob9-Ug-bh8"/>
+                                    <action selector="tapSaveButton:" destination="vLE-cu-AVY" eventType="touchUpInside" id="ruF-cz-0AO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OxK-ly-KH1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="jzd-Dr-JbS" secondAttribute="trailing" constant="140" id="1oK-gH-eEA"/>
+                            <constraint firstItem="XD9-EK-35R" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="5gt-qG-JPM"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="Lyy-eG-hpk" secondAttribute="trailing" constant="200" id="DNo-R4-m0S"/>
+                            <constraint firstItem="Lyy-eG-hpk" firstAttribute="top" secondItem="XD9-EK-35R" secondAttribute="bottom" id="DwS-C0-UpA"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="8sD-5g-b7B" secondAttribute="trailing" constant="16" id="Gmg-Uk-4zr"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="XD9-EK-35R" secondAttribute="trailing" constant="320" id="IoL-0G-x41"/>
+                            <constraint firstItem="yMm-uR-i2C" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="Ju6-Rt-43R"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="Dex-ev-Leb" secondAttribute="trailing" constant="100" id="MpD-jr-E76"/>
+                            <constraint firstItem="jzd-Dr-JbS" firstAttribute="top" secondItem="OxK-ly-KH1" secondAttribute="top" constant="40" id="SYS-Iw-tWZ"/>
+                            <constraint firstItem="jzd-Dr-JbS" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="SlN-e2-mTK"/>
+                            <constraint firstItem="Lyy-eG-hpk" firstAttribute="top" secondItem="XD9-EK-35R" secondAttribute="bottom" id="VWL-j4-gVB"/>
+                            <constraint firstItem="3y4-z9-uv9" firstAttribute="top" secondItem="jzd-Dr-JbS" secondAttribute="bottom" constant="30" id="Wld-uf-9T4"/>
+                            <constraint firstItem="8sD-5g-b7B" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="ZlS-GM-Ofe"/>
+                            <constraint firstItem="Dex-ev-Leb" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="100" id="aC9-kF-DGR"/>
+                            <constraint firstItem="8sD-5g-b7B" firstAttribute="top" secondItem="3y4-z9-uv9" secondAttribute="bottom" constant="10" id="e1c-Vh-qFv"/>
+                            <constraint firstItem="3y4-z9-uv9" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="eCe-5A-7gx"/>
+                            <constraint firstItem="XD9-EK-35R" firstAttribute="top" secondItem="INo-dk-uoG" secondAttribute="bottom" constant="30" id="eZX-bA-EYA"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="yMm-uR-i2C" secondAttribute="trailing" constant="300" id="fw4-hL-Woq"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="3y4-z9-uv9" secondAttribute="trailing" constant="192" id="hZA-bT-yWM"/>
+                            <constraint firstItem="yMm-uR-i2C" firstAttribute="top" secondItem="8sD-5g-b7B" secondAttribute="bottom" constant="30" id="j6s-sd-k5k"/>
+                            <constraint firstItem="INo-dk-uoG" firstAttribute="top" secondItem="yMm-uR-i2C" secondAttribute="bottom" constant="10" id="twi-RP-JQT"/>
+                            <constraint firstItem="OxK-ly-KH1" firstAttribute="trailing" secondItem="INo-dk-uoG" secondAttribute="trailing" constant="200" id="uDM-hM-GhO"/>
+                            <constraint firstItem="INo-dk-uoG" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="wha-Mf-2Vd"/>
+                            <constraint firstItem="Dex-ev-Leb" firstAttribute="top" secondItem="Lyy-eG-hpk" secondAttribute="bottom" constant="30" id="xuw-jT-XWu"/>
+                            <constraint firstItem="Lyy-eG-hpk" firstAttribute="leading" secondItem="OxK-ly-KH1" secondAttribute="leading" constant="16" id="yrw-L0-F85"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseField" destination="8sD-5g-b7B" id="e6e-Ig-jRe"/>
+                        <outlet property="repsPickerView" destination="Lyy-eG-hpk" id="m2F-TX-Ym6"/>
+                        <outlet property="seriesSegmentControl" destination="INo-dk-uoG" id="n4K-0S-ugT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbV-Zj-gNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4091" y="403"/>
         </scene>
         <!--Edit Category View Controller-->
         <scene sceneID="inI-bg-nsY">
@@ -805,10 +920,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
