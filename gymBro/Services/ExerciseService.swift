@@ -78,9 +78,10 @@ class ExerciseService {
                 let data = document.data()
                 let id = document.documentID
                 let name: String = data["name"] as? String ?? ""
-                let series: Int = data["series"] as? Int ?? 0
+                let series: String = data["series"] as? String ?? ""
                 let repetitions: Int = data["repetitions"] as? Int ?? 0
-                let exerciseInstance = ExerciseRequest(id: id, name: name, series: series, repetitions: repetitions)
+                let date: Date = data["date"] as? Date ?? Date()
+                let exerciseInstance = ExerciseRequest(id: id, name: name, series: series, repetitions: repetitions, date: date)
                 exercisesModel.append(exerciseInstance)
             }
             
@@ -115,15 +116,13 @@ class ExerciseService {
             let exerciseInstace = ExerciseRequest(
                 id: exerciseId,
                 name: data["name"] as? String ?? "",
-                series: data["series"] as? Int ?? 1,
-                repetitions: data["repetitions"] as? Int ?? 1
+                series: data["series"] as? String ?? "",
+                repetitions: data["repetitions"] as? Int ?? 1,
+                date: data["date"] as? Date ?? Date()
             )
             
             completion(exerciseInstace, nil)
         }
-        
-        
-        
     }
     
     public func registerNewExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
@@ -136,13 +135,15 @@ class ExerciseService {
         let exerciseCollection = db.collection("users").document(uid).collection("categoryExercices").document(categoryId).collection("exercices")
         
         let exerciseName: String = exerciseRequest.name
-        let series: Int = exerciseRequest.series
+        let series: String = exerciseRequest.series
         let reps: Int = exerciseRequest.repetitions
+        let date: Date = exerciseRequest.date
         
         let exerciseData: [String: Any] = [
             "name": exerciseName,
             "series": series,
-            "repetitions" : reps
+            "repetitions" : reps,
+            "date" : date
         ]
         
         let documentReference = exerciseCollection.addDocument(data: exerciseData) { error in
@@ -152,7 +153,40 @@ class ExerciseService {
             }
         }
         
-        let exerciseInstance = ExerciseRequest(id: documentReference.documentID, name: exerciseName, series: series, repetitions: reps)
+        let exerciseInstance = ExerciseRequest(id: documentReference.documentID, name: exerciseName, series: series, repetitions: reps, date: date)
         completion(exerciseInstance, nil)
+    }
+    
+    public func editExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping(ExerciseRequest?, Error?) -> Void) {
+        guard let uid = getUserId() else {
+            let error = createNSError(domain: "AuthError", description: "No current user")
+            completion(nil, error)
+            return
+        }
+        
+        let exerciseId = exerciseRequest.id
+        let exerciseDocument = db.collection("users").document(uid).collection("categoryExercices").document(categoryId).collection("exercices").document(exerciseId)
+        let exerciseName: String = exerciseRequest.name
+        let series: String = exerciseRequest.series
+        let reps: Int = exerciseRequest.repetitions
+        let date: Date = exerciseRequest.date
+        
+        let dataToSend: [String : Any] = [
+            "name": exerciseName,
+            "series": series,
+            "repetitions" : reps,
+            "date" : date
+        ]
+        
+        exerciseDocument.updateData(dataToSend) { error in
+            if error != nil {
+                let error = self.createNSError(domain: "FirebaseError", description: "Error to edit exercise")
+                completion(nil, error)
+                return
+            }
+            
+            completion(exerciseRequest, nil)
+        }
+        
     }
 }

@@ -63,34 +63,49 @@ class EditExerciseViewController: UIViewController {
     
     private func configureInfoView(exercise: ExerciseRequest) {
         exerciseField.text = exercise.name
+        
         if let rowIndex = numberOfSeries.firstIndex(of: exercise.repetitions) {
             repsPickerView.selectRow(rowIndex, inComponent: 0, animated: true)
         }
         
-        let titleSegment = "\(exercise.series)x"
-        if let segmentIndex = arraySeries.firstIndex(of: titleSegment) {
-            seriesSegmentControl.selectedSegmentIndex = segmentIndex
+        if let rowIndex = arraySeries.firstIndex(of: exercise.series) {
+            seriesSegmentControl.selectedSegmentIndex = rowIndex
         } else {
             seriesSegmentControl.selectedSegmentIndex = UISegmentedControl.noSegment
         }
     }
     
     @IBAction func editExerciseTap(_ sender: Any) {
-        
         guard let exerciseId = exerciseId else { return}
+        guard let idCategory = idCategory else { return }
         let selectedIndex = repsPickerView.selectedRow(inComponent: 0)
         let selectedRow = numberOfSeries[selectedIndex]
+        let selectedIndexSegment = seriesSegmentControl.selectedSegmentIndex
+        let selectedTitle = arraySeries[selectedIndexSegment]
+        let editExerciseVM = EditExerciseViewModel(idCategory: idCategory, exerciseId: exerciseId)
         let exerciseRequest = ExerciseRequest(
             id: exerciseId,
             name: exerciseField.text ?? "",
-            series: seriesSegmentControl.selectedSegmentIndex,
-            repetitions: selectedRow
+            series: selectedTitle,
+            repetitions: selectedRow,
+            date: Date()
         )
         
-        delegate?.didEditExerciseDelegate(exerciseRequest: exerciseRequest)
-        dismiss(animated: true)
+        editExerciseVM.editExercise(exerciseEdit: exerciseRequest, completion: { exerciseData, error in
+            if let error = error {
+                self.showCustomAlert(title: "Erro", message: error.localizedDescription)
+                return
+            }
+            
+            guard let exercise = exerciseData else {
+                self.showCustomAlert(title: "Erro", message: "Exercício não encontrado")
+                return
+            }
+            
+            self.delegate?.didEditExerciseDelegate(exerciseRequest: exercise)
+            self.dismiss(animated: true)
+        })
     }
-    
 }
 
 extension EditExerciseViewController: UIPickerViewDelegate, UIPickerViewDataSource {

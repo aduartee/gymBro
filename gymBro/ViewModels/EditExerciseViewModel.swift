@@ -28,4 +28,16 @@ class EditExerciseViewModel {
             
         }
     }
+    
+    func editExercise(exerciseEdit: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+        exerciseService.editExercise(categoryId: self.idCategory, exerciseRequest: exerciseEdit) { exercise, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+                                
+            completion(exercise, nil)
+        }
+        
+    }
 }

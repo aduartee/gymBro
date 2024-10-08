@@ -26,12 +26,16 @@ class RegisterCategoryViewController: UIViewController {
     @IBOutlet weak var messageView: UIView!
     private let exerciseViewModel = ExerciseViewModel()
     var data:[ExerciseRequest] = []
+    let seriesArray: [String] = ["2x", "3x", "4x"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         styleView()
+        
+        tableView.register(UINib(nibName: "ExerciseViewRow", bundle: nil), forCellReuseIdentifier: "ExerciseCell")
+
         guard let idCategory = idCategory else { return }
         showExerciseList(idCategory: idCategory)
     }
@@ -83,6 +87,10 @@ class RegisterCategoryViewController: UIViewController {
                 self.data.removeAll()
                 self.data.append(contentsOf: exercise)
                 self.tableView.reloadData()
+            }
+            
+            for i in 0..<data.count {
+                print("\(i): \(data[i])")
             }
         }
     }
@@ -163,7 +171,7 @@ class RegisterCategoryViewController: UIViewController {
     
     
     private func removeRow(indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Edit") {  [weak self] (_, _, _) in
+        let action = UIContextualAction(style: .normal, title: "Remove") {  [weak self] (_, _, _) in
             guard let self = self else { return }
             let selectedRowId = data[indexPath.row].id
             goToEditView(selectedRowexerciseId: selectedRowId)
@@ -182,13 +190,15 @@ extension RegisterCategoryViewController: UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let model = data[indexPath.row]
-        cell.textLabel?.text = model.name
-        cell.detailTextLabel?.text = "teste"
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as? ExerciseTableViewCell else {
+            return UITableViewCell()
+        }
         
+        let exercise = data[indexPath.row]
+        let exerciseName = exercise.name
+        let series = String(exercise.series)
+        let order = String(indexPath.row + 1)
+        cell.configureCell(name: exerciseName, series: series, orderNumber: order)
         return cell
     }
     
@@ -209,6 +219,12 @@ extension RegisterCategoryViewController: RegisterExerciseDelegate, EditExercise
     }
     
     func didEditExerciseDelegate(exerciseRequest: ExerciseRequest) {
-        
+        if let indexToEdit = data.firstIndex(where: {$0.id == exerciseRequest.id}) {
+            data[indexToEdit] = exerciseRequest
+            let indexPath = IndexPath(row: indexToEdit, section: 0)
+            DispatchQueue.main.async {
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+            }
+        }
     }
 }
