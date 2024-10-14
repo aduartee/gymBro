@@ -55,4 +55,14 @@ class FirestoreExerciseService: ExerciseDatabaseService {
         
         completion(.success(documentReference))
     }
+    
+    func editExerciseFirebase(exerciseEditedData: [String: Any], exerciseDocument: DocumentReference, completion: @escaping (Result<Bool, ExerciseErrorEnum>) -> Void) {
+        exerciseDocument.updateData(exerciseEditedData) { error in
+            if error != nil {
+                completion(.failure(ExerciseErrorEnum.errorEdit))
+            }
+            
+            completion(.success(true))
+        }
+    }
 }

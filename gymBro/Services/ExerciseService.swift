@@ -127,35 +127,34 @@ class ExerciseService: ExerciseServiceProtocol {
     }
     
     public func editExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping(ExerciseRequest?, Error?) -> Void) {
-        guard let uid = getUserId() else {
-            let error = createNSError(domain: "AuthError", description: "No current user")
-            completion(nil, error)
+        guard let userId = self.userId else {
+            completion(nil,  ErrorUtil.createNSError(domain: "AuthError", description: "No current user"))
             return
         }
         
         let exerciseId = exerciseRequest.id
-        let exerciseDocument = db.collection("users").document(uid).collection("categoryExercices").document(categoryId).collection("exercices").document(exerciseId)
-        let exerciseName: String = exerciseRequest.name
-        let series: String = exerciseRequest.series
-        let reps: Int = exerciseRequest.repetitions
-        let date: Date = exerciseRequest.date
-        
-        let dataToSend: [String : Any] = [
-            "name": exerciseName,
-            "series": series,
-            "repetitions" : reps,
-            "date" : date
-        ]
-        
-        exerciseDocument.updateData(dataToSend) { error in
-            if error != nil {
-                let error = self.createNSError(domain: "FirebaseError", description: "Error to edit exercise")
-                completion(nil, error)
-                return
-            }
+        let exerciseDocument = self.databaseService.fetchExerciseDocumentById(idCategory: categoryId, exerciseId: exerciseId, userId: userId) { exerciseDocument in
             
-            completion(exerciseRequest, nil)
+            switch exerciseDocument {
+            case .failure(let error):
+                completion(nil, error)
+                
+            case .success(let document):
+                let exerciseData = self.buildExerciseData(name: exerciseRequest.name,
+                                                          series: exerciseRequest.series,
+                                                          reps: exerciseRequest.repetitions,
+                                                          date: exerciseRequest.date)
+                
+                databaseService.editExerciseFirebase(exerciseEditedData: exerciseData, exerciseDocument: document) { operationStatus in
+                    switch operationStatus {
+                    case .failure(let error):
+                        completion(nil, error)
+                        
+                    case .success():
+                        completion(exerciseRequest, nil)
+                    }
+                }
+            }
         }
-        
     }
 }
