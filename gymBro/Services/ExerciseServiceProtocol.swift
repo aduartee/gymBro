@@ -3,9 +3,9 @@ import FirebaseFirestore
 protocol ExerciseServiceProtocol {
     func fetchAllExercices(idCategory: String, completion: @escaping ([ExerciseRequest]?, Error?) -> Void)
     
-    func buildExercisesRequest(documents: [QueryDocumentSnapshot]) -> [ExerciseRequest]
+    func buildExercisesRequest(_ documents: [QueryDocumentSnapshot]) -> [ExerciseRequest]
     
-    func buildExerciseById(_ document: DocumentSnapshot) -> ExerciseRequest
+    func buildExerciseInstanceById(_ document: DocumentSnapshot, _ exerciseId: String) -> ExerciseRequest
     
     func fetchExerciseById(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void)
     

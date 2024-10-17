@@ -44,14 +44,13 @@ class RegisterCategoryViewController: UIViewController {
         showEmptyMessage()
         styleHeaderView()
         guard let idCategory = idCategory else { return }
-        changeExerciseInfo(idCategory: idCategory)
+//        changeExerciseInfo(idCategory: idCategory)
     }
     
     private func styleHeaderView() {
         headerView.layer.cornerRadius = 40.0
         headerView.layer.cornerRadius = 40.0
         headerView.layer.masksToBounds = true
-        //        Set the radius only on the bottom leading and bottom trailing corners
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -64,13 +63,16 @@ class RegisterCategoryViewController: UIViewController {
                 self.showCustomAlert(title: "Warning", message: "\(error)")
                 return
             }
+            
             guard let exerciceCategory = exerciceCategory else {
                 self.showCustomAlert(title: "Warning", message: "Result was empty, review category")
                 return
             }
             
-            headerLabel.text = exerciceCategory.categoryName
-            headerDescription.text = exerciceCategory.description
+            DispatchQueue.main.async {
+                self.headerLabel.text = exerciceCategory.categoryName
+                self.headerDescription.text = exerciceCategory.description
+            }
         }
     }
     
@@ -89,9 +91,9 @@ class RegisterCategoryViewController: UIViewController {
                 self.tableView.reloadData()
             }
             
-            for i in 0..<data.count {
-                print("\(i): \(data[i])")
-            }
+//            for i in 0..<data.count {
+//                print("\(i): \(data[i])")
+//            }
         }
     }
     

@@ -13,9 +13,10 @@ class FirestoreExerciseCategoryService:ExerciseCategoryDatabaseService {
     ///   - categoryId: The ID of the category registered by the user.
     ///   - completion: A closure that returns either the fetched document or an NSError if the operation fails.
     public func fetchCategoryDocument(userId: String, categoryId: String, completion: @escaping (Result<DocumentSnapshot, NSError>) -> Void) {
-        db.collection("users").document(userId).collection("categoryExercises").document(categoryId).getDocument { document, error in
+        db.collection("users").document(userId).collection("categoryExercices").document(categoryId).getDocument { document, error in
             if let error = error as? NSError {
                 completion(.failure(error))
+                return
             }
             
             switch FirestoreDocumentUtil.isDocumentExistData(document) {

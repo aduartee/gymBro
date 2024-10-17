@@ -6,8 +6,9 @@ class FirestoreDocumentUtil {
     /// - Parameter document: The document to validate.
     /// - Returns: A Result containing either a success with the document if it exists, or a failure with an error if the document is nil or doesen't exist..
     static func isDocumentExistData(_ document: DocumentSnapshot?) -> Result<DocumentSnapshot, NSError> {
+        print("Entrou na primeira tambem")
         guard let document = document, document.exists, let _ = document.data() else {
-            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise does not exist, register a new exercise and try again")
+            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise one Document does not exist, register a new exercise and try again")
             return .failure(documentError)
         }
         
@@ -16,16 +17,12 @@ class FirestoreDocumentUtil {
     
     
     static func isDocumentExistDocuments(_ querySnapshot: QuerySnapshot?) -> Result<[QueryDocumentSnapshot], NSError> {
+        print("Entrou na segunda")
         guard let querySnapshot = querySnapshot, !querySnapshot.isEmpty else {
-            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise does not exist, register a new exercise and try again")
+            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise many Documents reference does not exist, register a new exercise and try again")
             return .failure(documentError)
         }
         
         return .success(querySnapshot.documents)
-        
-        
-        
-        
-        
     }
 }

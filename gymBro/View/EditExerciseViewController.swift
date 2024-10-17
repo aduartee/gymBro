@@ -48,7 +48,7 @@ class EditExerciseViewController: UIViewController {
             idCategory: idCategory,
             exerciseId: exerciseId
         )
-        
+                
         editExerciseViewModel.getExerciseById { [weak self] exercise, error in
             guard let self = self else { return }
             if let error = error {

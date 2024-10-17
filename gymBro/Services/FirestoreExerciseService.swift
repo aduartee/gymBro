@@ -2,12 +2,11 @@ import Foundation
 import FirebaseFirestore
 
 
-class FirestoreExerciseService: ExerciseDatabaseService {
+class FirestoreExerciseService: ExerciseDatabaseServiceProtocol {
     private var db = Firestore.firestore()
     
     func fetchExerciseDocument(idCategory: String, userId: String, completion: @escaping (Result<[QueryDocumentSnapshot], NSError>) -> Void) {
         db.collection("users").document(userId).collection("categoryExercices").document(idCategory).collection("exercices").getDocuments { querySnapshot, error in
-            
             if let error = error as? NSError {
                 completion(.failure(error))
             }
@@ -15,6 +14,7 @@ class FirestoreExerciseService: ExerciseDatabaseService {
             switch FirestoreDocumentUtil.isDocumentExistDocuments(querySnapshot) {
             case .failure(let error):
                 completion(.failure(error))
+                return
                 
             case .success(let queryDocuments):
                 completion(.success(queryDocuments))
@@ -23,7 +23,6 @@ class FirestoreExerciseService: ExerciseDatabaseService {
     }
     
     func fetchExerciseDocumentById(idCategory: String, exerciseId: String, userId: String, completion: @escaping (Result<DocumentSnapshot, NSError>) -> Void) {
-        
         db.collection("users").document(userId).collection("categoryExercices").document(idCategory).collection("exercices").document(exerciseId).getDocument { document, error in
             if let error = error as? NSError {
                 completion(.failure(error))
@@ -43,10 +42,13 @@ class FirestoreExerciseService: ExerciseDatabaseService {
         return db.collection("users").document(userId).collection("categoryExercices").document(idCategory).collection("exercices")
     }
     
+    func fetchExerciseReferenceById(idCategory: String, exerciseId: String, userId: String) -> DocumentReference {
+        return db.collection("users").document(userId).collection("categoryExercices").document(idCategory).collection("exercices").document(exerciseId)
+    }
+    
     func registerExerciseFirabase(exerciseData: [String: Any], exerciseCollection: CollectionReference, completion: @escaping (Result <DocumentReference, NSError>) -> Void) {
         
         let documentReference = exerciseCollection.addDocument(data: exerciseData) { error in
-              // Se houver erro, retorna no completion
               if let error = error as NSError? {
                   completion(.failure(error))
                   return

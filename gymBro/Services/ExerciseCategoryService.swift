@@ -25,7 +25,7 @@ class ExerciseCategoryService:ExerciseCatergoryServiceProtocol {
             completion(nil, ErrorUtil.createNSError(domain: "ExerciseServiceError", description: "User ID is missing."))
             return
         }
-        
+
         dataBaseService.fetchCategoryDocument(userId: userId, categoryId: categoryId) { document in
             switch document {
 

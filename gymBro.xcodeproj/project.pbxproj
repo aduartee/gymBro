@@ -40,7 +40,6 @@
 		26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17962C41D48000E682E5 /* Assets.xcassets */; };
 		26BA179A2C41D48000E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17992C41D48000E682E5 /* Base */; };
 		26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */; };
-		26CCB31C2C7C00F6002FEA4D /* ExerciseCatergoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB31B2C7C00F6002FEA4D /* ExerciseCatergoryService.swift */; };
 		26D6FBBD2C704780007F781B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA52C704780007F781B /* Montserrat-Black.ttf */; };
 		26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */; };
 		26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */; };
@@ -56,6 +55,7 @@
 		26D6FBD12C704780007F781B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBBA2C704780007F781B /* OFL.txt */; };
 		26D6FBD22C704780007F781B /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBBB2C704780007F781B /* README.txt */; };
 		26D8023C2CBD666300907CC2 /* ExerciseErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */; };
+		26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8023D2CBD70C000907CC2 /* ExerciseService.swift */; };
 		26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DEDF562CB81123006632B0 /* ExerciseCategoryDatabaseProtocol.swift */; };
 		26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DEDF582CB811C2006632B0 /* FirestoreExerciseCategoryService.swift */; };
 		26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0B00A2C449E9000C29539 /* SignInViewModel.swift */; };
@@ -98,7 +98,6 @@
 		26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewController.swift; sourceTree = "<group>"; };
 		26B41E5D2CB9767D00599D20 /* ExerciseCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryService.swift; sourceTree = "<group>"; };
 		26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCatergoryServiceProtocol.swift; sourceTree = "<group>"; };
-		26B41E612CB97BB700599D20 /* ExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseService.swift; sourceTree = "<group>"; };
 		26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseServiceProtocol.swift; sourceTree = "<group>"; };
 		26B54E772CB587F30012476C /* FirebaseUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserService.swift; sourceTree = "<group>"; };
 		26B54E792CB58BB50012476C /* ErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		26BA17992C41D48000E682E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26BA179B2C41D48000E682E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
-		26CCB31B2C7C00F6002FEA4D /* ExerciseCatergoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCatergoryService.swift; sourceTree = "<group>"; };
 		26D6FBA52C704780007F781B /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -127,6 +125,7 @@
 		26D6FBBA2C704780007F781B /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		26D6FBBB2C704780007F781B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseErrorEnum.swift; sourceTree = "<group>"; };
+		26D8023D2CBD70C000907CC2 /* ExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseService.swift; sourceTree = "<group>"; };
 		26DEDF562CB81123006632B0 /* ExerciseCategoryDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryDatabaseProtocol.swift; sourceTree = "<group>"; };
 		26DEDF582CB811C2006632B0 /* FirestoreExerciseCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExerciseCategoryService.swift; sourceTree = "<group>"; };
 		26E0B00A2C449E9000C29539 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -289,8 +288,8 @@
 		26E0B0092C449DDF00C29539 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				26D8023D2CBD70C000907CC2 /* ExerciseService.swift */,
 				26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */,
-				26B41E612CB97BB700599D20 /* ExerciseService.swift */,
 				26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */,
 				26B41E5D2CB9767D00599D20 /* ExerciseCategoryService.swift */,
 				263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */,
@@ -300,7 +299,6 @@
 				263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */,
 				26E0B01A2C44B55300C29539 /* AuthService.swift */,
 				269571722C5438040054021B /* HomeService.swift */,
-				26CCB31B2C7C00F6002FEA4D /* ExerciseCatergoryService.swift */,
 				26B54E772CB587F30012476C /* FirebaseUserService.swift */,
 			);
 			path = Services;
@@ -445,13 +443,13 @@
 				2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */,
 				26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */,
 				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
-				26CCB31C2C7C00F6002FEA4D /* ExerciseCatergoryService.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
 				26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */,
 				26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */,
 				26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */,
 				26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */,
 				26B41E632CB97BF600599D20 /* ExerciseServiceProtocol.swift in Sources */,
+				26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */,
 				26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

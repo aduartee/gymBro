@@ -1,9 +1,9 @@
-import FirebaseStorage
 import Foundation
+import Firebase
 
 class ExerciseService: ExerciseServiceProtocol {
     public static let shared = ExerciseService()
-    private let databaseService: ExerciseServiceProtocol
+    private let databaseService: ExerciseDatabaseServiceProtocol
     private var userId: String? {
         switch FirebaseUserService.shared.getAuthenticatedUserId() {
         case .success(let userUId):
@@ -15,7 +15,7 @@ class ExerciseService: ExerciseServiceProtocol {
         }
     }
     
-    private init(databaseService: ExerciseServiceProtocol = FirestoreExerciseService) {
+    private init(databaseService: ExerciseDatabaseServiceProtocol = FirestoreExerciseService()) {
         self.databaseService = databaseService
     }
 
@@ -25,20 +25,21 @@ class ExerciseService: ExerciseServiceProtocol {
             return
         }
         
-        self.databaseService.fetchExerciseDocument(idCategory: String, userId: String) { exerciseDocuments in
+        self.databaseService.fetchExerciseDocument(idCategory: idCategory, userId: userUid) { exerciseDocuments in
             switch exerciseDocuments {
-            case .failure(let error) {
+            case .failure(let error):
                 completion(nil, error)
-            }
+                return
                 
-            case .success(let documents)
+            case .success(let documents):
                 let exercisesData = self.buildExercisesRequest(documents)
-                completion(exerciseDocuments, nil)
+                completion(exercisesData, nil)
+                return
             }
         }
     }
     
-    private func buildExercisesRequest(_ documents: [QueryDocumentSnapshot]) -> [ExerciseRequest] {
+    internal func buildExercisesRequest(_ documents: [QueryDocumentSnapshot]) -> [ExerciseRequest] {
         var exercisesModel: [ExerciseRequest] = []
         
         for document in documents {
@@ -55,19 +56,19 @@ class ExerciseService: ExerciseServiceProtocol {
         return exercisesModel
     }
     
-    private func buildExerciseById(_ document: DocumentSnapshot) -> ExerciseRequest {
+    internal func buildExerciseInstanceById(_ document: DocumentSnapshot, _ exerciseId: String) -> ExerciseRequest {
         return ExerciseRequest(
             id: exerciseId,
-            name: data["name"] as? String ?? "",
-            series: data["series"] as? String ?? "",
-            repetitions: data["repetitions"] as? Int ?? 1,
-            date: data["date"] as? Date ?? Date()
+            name: document["name"] as? String ?? "",
+            series: document["series"] as? String ?? "",
+            repetitions: document["repetitions"] as? Int ?? 1,
+            date: document["date"] as? Date ?? Date()
         )
     }
     
-    private func buildExerciseData(name: String, series: String, reps: Int, date: Date) -> [String: Any] {
+    internal func buildExerciseData(name: String, series: String, reps: Int, date: Date) -> [String: Any] {
         let exerciseData: [String: Any] = [
-            "name": exerciseName,
+            "name": name,
             "series": series,
             "repetitions" : reps,
             "date" : date
@@ -82,20 +83,21 @@ class ExerciseService: ExerciseServiceProtocol {
             return
         }
         
+        
+        
         self.databaseService.fetchExerciseDocumentById(idCategory: idCategory, exerciseId: exerciseId, userId: userId) { exerciseDocument in
-            
             switch exerciseDocument {
             case .failure(let error):
                 completion(nil, error)
                 
             case .success(let document):
-                let exerciseData = buildExerciseById(document)
+                let exerciseData = self.buildExerciseInstanceById(document, exerciseId)
                 completion(exerciseData, nil)
             }
         }
     }
     
-    public func registerNewExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+    func registerNewExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
         guard let userId = self.userId else {
             completion(nil,  ErrorUtil.createNSError(domain: "AuthError", description: "No current user"))
             return
@@ -107,54 +109,50 @@ class ExerciseService: ExerciseServiceProtocol {
                                              date: exerciseRequest.date
         )
         
-        let exerciseCollection = self.fetchExerciseCollection(idCategory: categoryId, userId: userId)
+        let exerciseCollection = databaseService.fetchExerciseCollection(idCategory: categoryId, userId: userId)
         
-        switch databaseService.registerExerciseFirabase(exerciseData: exerciseData, exerciseCollection: exerciseCollection) {
-        case .failure(let error):
-            completion(nil, error)
-            
-        case .success(let documentReference):
-            let exerciseInstance = ExerciseRequest(
-                id: documentReference.documentID,
-                name: exerciseRequest.name,
-                series: exerciseRequest.series,
-                repetitions: exerciseRequest.repetitions,
-                date: exerciseRequest.date
-            )
-            
-            completion(exerciseInstance, nil)
+        databaseService.registerExerciseFirabase(exerciseData: exerciseData, exerciseCollection: exerciseCollection) { referenceDocumentExercise in
+        
+            switch referenceDocumentExercise {
+            case .failure(let error):
+                completion(nil, error)
+                
+            case .success(let documentReference):
+                let exerciseInstance = ExerciseRequest(
+                    id: documentReference.documentID,
+                    name: exerciseRequest.name,
+                    series: exerciseRequest.series,
+                    repetitions: exerciseRequest.repetitions,
+                    date: exerciseRequest.date
+                )
+                
+                completion(exerciseInstance, nil)
+            }
         }
     }
     
-    public func editExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping(ExerciseRequest?, Error?) -> Void) {
+    func editExercise(categoryId: String, exerciseRequest: ExerciseRequest, completion: @escaping(ExerciseRequest?, Error?) -> Void) {
         guard let userId = self.userId else {
             completion(nil,  ErrorUtil.createNSError(domain: "AuthError", description: "No current user"))
             return
         }
         
         let exerciseId = exerciseRequest.id
-        let exerciseDocument = self.databaseService.fetchExerciseDocumentById(idCategory: categoryId, exerciseId: exerciseId, userId: userId) { exerciseDocument in
-            
-            switch exerciseDocument {
+        let exerciseReference = self.databaseService.fetchExerciseReferenceById(idCategory: categoryId, exerciseId: exerciseId, userId: userId)
+        let exerciseData = self.buildExerciseData(name: exerciseRequest.name,
+                                                  series: exerciseRequest.series,
+                                                  reps: exerciseRequest.repetitions,
+                                                  date: exerciseRequest.date)
+        
+        databaseService.editExerciseFirebase(exerciseEditedData: exerciseData, exerciseDocument: exerciseReference) { operationStatus in
+            switch operationStatus {
             case .failure(let error):
                 completion(nil, error)
                 
-            case .success(let document):
-                let exerciseData = self.buildExerciseData(name: exerciseRequest.name,
-                                                          series: exerciseRequest.series,
-                                                          reps: exerciseRequest.repetitions,
-                                                          date: exerciseRequest.date)
-                
-                databaseService.editExerciseFirebase(exerciseEditedData: exerciseData, exerciseDocument: document) { operationStatus in
-                    switch operationStatus {
-                    case .failure(let error):
-                        completion(nil, error)
-                        
-                    case .success():
-                        completion(exerciseRequest, nil)
-                    }
-                }
+            case .success( _):
+                completion(exerciseRequest, nil)
             }
         }
     }
 }
+
