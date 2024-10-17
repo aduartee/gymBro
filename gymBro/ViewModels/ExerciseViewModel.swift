@@ -8,8 +8,16 @@
 import Foundation
 
 class ExerciseViewModel {
+    private var exerciseService: ExerciseServiceProtocol
+    private var exerciseCategoryService:ExerciseCatergoryServiceProtocol
+    
+    init(exerciseService: ExerciseServiceProtocol = ExerciseService.shared, exerciseCategoryService: ExerciseCatergoryServiceProtocol = ExerciseCategoryService.shared) {
+        self.exerciseService = exerciseService
+        self.exerciseCategoryService = exerciseCategoryService
+    }
+    
     func fetchExerciceCategoryById(categoryId:String, completion: @escaping (CategoryExerciseRequest?, Error?) -> Void) {
-        ExerciseService.shared.fetchExerciseCategoryById(categoryId: categoryId) { categoryExercise, error in
+        exerciseCategoryService.fetchExerciseCategoryById(categoryId: categoryId) { categoryExercise, error in
             if let error = error {
                 completion(nil, error)
                 return
@@ -20,14 +28,13 @@ class ExerciseViewModel {
     }
     
     func fetchAllExercicesCategory(categoryId: String, completion: @escaping ([ExerciseRequest]?, Error?) -> Void ){
-        ExerciseService.shared.fetchAllExercices(idCategory: categoryId) { exercise, error in
+        exerciseService.fetchAllExercices(idCategory: categoryId) { exercise, error in
             if let error = error {
                 completion(nil, error)
                 return
             }
             
             completion(exercise, nil)
-            
         }
     }
 }

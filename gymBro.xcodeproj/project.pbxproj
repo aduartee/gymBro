@@ -14,7 +14,11 @@
 		261F13642C80F7D40075A401 /* UIViewController+CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */; };
 		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
 		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
+		263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */; };
 		263AB5D72C82BCE0008B7716 /* RegisterExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263AB5D62C82BCE0008B7716 /* RegisterExerciseViewModel.swift */; };
+		263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */; };
+		263DDEC02CB82681008B5916 /* ExerciseDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEBF2CB82677008B5916 /* ExerciseDatabaseProtocol.swift */; };
+		263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */; };
 		2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264608692C87540C0085E1AA /* EditExerciseViewController.swift */; };
 		2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */; };
 		266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266324D42C4FF68B006B5096 /* HomeViewModel.swift */; };
@@ -24,6 +28,11 @@
 		26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */; };
 		26B0C6FF2C7F767B005C1FA9 /* RegisterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */; };
 		26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */; };
+		26B41E5E2CB9767E00599D20 /* ExerciseCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B41E5D2CB9767D00599D20 /* ExerciseCategoryService.swift */; };
+		26B41E602CB97B1100599D20 /* ExerciseCatergoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */; };
+		26B41E632CB97BF600599D20 /* ExerciseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */; };
+		26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B54E772CB587F30012476C /* FirebaseUserService.swift */; };
+		26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B54E792CB58BB50012476C /* ErrorUtils.swift */; };
 		26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178D2C41D47F00E682E5 /* AppDelegate.swift */; };
 		26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */; };
 		26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA17912C41D47F00E682E5 /* ViewController.swift */; };
@@ -31,7 +40,6 @@
 		26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17962C41D48000E682E5 /* Assets.xcassets */; };
 		26BA179A2C41D48000E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17992C41D48000E682E5 /* Base */; };
 		26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */; };
-		26CCB31C2C7C00F6002FEA4D /* ExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB31B2C7C00F6002FEA4D /* ExerciseService.swift */; };
 		26D6FBBD2C704780007F781B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA52C704780007F781B /* Montserrat-Black.ttf */; };
 		26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */; };
 		26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */; };
@@ -46,6 +54,10 @@
 		26D6FBCD2C704780007F781B /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBB52C704780007F781B /* Montserrat-Thin.ttf */; };
 		26D6FBD12C704780007F781B /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBBA2C704780007F781B /* OFL.txt */; };
 		26D6FBD22C704780007F781B /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBBB2C704780007F781B /* README.txt */; };
+		26D8023C2CBD666300907CC2 /* ExerciseErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */; };
+		26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8023D2CBD70C000907CC2 /* ExerciseService.swift */; };
+		26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DEDF562CB81123006632B0 /* ExerciseCategoryDatabaseProtocol.swift */; };
+		26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DEDF582CB811C2006632B0 /* FirestoreExerciseCategoryService.swift */; };
 		26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0B00A2C449E9000C29539 /* SignInViewModel.swift */; };
 		26E0B00E2C44A65C00C29539 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 26E0B00D2C44A65C00C29539 /* README.md */; };
 		26E0B0102C44A66E00C29539 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E0B00F2C44A66E00C29539 /* GoogleService-Info.plist */; };
@@ -70,7 +82,11 @@
 		261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomTextFields.swift"; sourceTree = "<group>"; };
 		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
+		263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserServiceProtocol.swift; sourceTree = "<group>"; };
 		263AB5D62C82BCE0008B7716 /* RegisterExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterExerciseViewModel.swift; sourceTree = "<group>"; };
+		263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDocumentUtil.swift; sourceTree = "<group>"; };
+		263DDEBF2CB82677008B5916 /* ExerciseDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDatabaseProtocol.swift; sourceTree = "<group>"; };
+		263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExerciseService.swift; sourceTree = "<group>"; };
 		264608692C87540C0085E1AA /* EditExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewController.swift; sourceTree = "<group>"; };
 		2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewModel.swift; sourceTree = "<group>"; };
 		266324D42C4FF68B006B5096 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +96,11 @@
 		26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewModel.swift; sourceTree = "<group>"; };
 		26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterExerciseViewController.swift; sourceTree = "<group>"; };
 		26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewController.swift; sourceTree = "<group>"; };
+		26B41E5D2CB9767D00599D20 /* ExerciseCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryService.swift; sourceTree = "<group>"; };
+		26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCatergoryServiceProtocol.swift; sourceTree = "<group>"; };
+		26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseServiceProtocol.swift; sourceTree = "<group>"; };
+		26B54E772CB587F30012476C /* FirebaseUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserService.swift; sourceTree = "<group>"; };
+		26B54E792CB58BB50012476C /* ErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
 		26BA178A2C41D47F00E682E5 /* gymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA178D2C41D47F00E682E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26BA178F2C41D47F00E682E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +110,6 @@
 		26BA17992C41D48000E682E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26BA179B2C41D48000E682E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
-		26CCB31B2C7C00F6002FEA4D /* ExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseService.swift; sourceTree = "<group>"; };
 		26D6FBA52C704780007F781B /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -104,6 +124,10 @@
 		26D6FBB52C704780007F781B /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		26D6FBBA2C704780007F781B /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		26D6FBBB2C704780007F781B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseErrorEnum.swift; sourceTree = "<group>"; };
+		26D8023D2CBD70C000907CC2 /* ExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseService.swift; sourceTree = "<group>"; };
+		26DEDF562CB81123006632B0 /* ExerciseCategoryDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryDatabaseProtocol.swift; sourceTree = "<group>"; };
+		26DEDF582CB811C2006632B0 /* FirestoreExerciseCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExerciseCategoryService.swift; sourceTree = "<group>"; };
 		26E0B00A2C449E9000C29539 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		26E0B00D2C44A65C00C29539 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		26E0B00F2C44A66E00C29539 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -134,6 +158,8 @@
 		263440642C4B4B3600F9726B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */,
+				26B54E792CB58BB50012476C /* ErrorUtils.swift */,
 				263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */,
 				261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */,
 			);
@@ -196,6 +222,7 @@
 		26BA17A22C41D4D900E682E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */,
 				26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */,
 				26E69AE02C4955E300F52FBB /* SignInUserRequest.swift */,
 				269571742C543B660054021B /* CategoryExerciseRequest.swift */,
@@ -261,9 +288,18 @@
 		26E0B0092C449DDF00C29539 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				26D8023D2CBD70C000907CC2 /* ExerciseService.swift */,
+				26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */,
+				26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */,
+				26B41E5D2CB9767D00599D20 /* ExerciseCategoryService.swift */,
+				263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */,
+				263DDEBF2CB82677008B5916 /* ExerciseDatabaseProtocol.swift */,
+				26DEDF582CB811C2006632B0 /* FirestoreExerciseCategoryService.swift */,
+				26DEDF562CB81123006632B0 /* ExerciseCategoryDatabaseProtocol.swift */,
+				263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */,
 				26E0B01A2C44B55300C29539 /* AuthService.swift */,
 				269571722C5438040054021B /* HomeService.swift */,
-				26CCB31B2C7C00F6002FEA4D /* ExerciseService.swift */,
+				26B54E772CB587F30012476C /* FirebaseUserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -376,9 +412,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26BA17922C41D47F00E682E5 /* ViewController.swift in Sources */,
+				26D8023C2CBD666300907CC2 /* ExerciseErrorEnum.swift in Sources */,
 				26E0B9EE2C594056002C29B2 /* RegisterCategoryViewController.swift in Sources */,
 				263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */,
+				263DDEC02CB82681008B5916 /* ExerciseDatabaseProtocol.swift in Sources */,
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
+				26B41E5E2CB9767E00599D20 /* ExerciseCategoryService.swift in Sources */,
 				26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
@@ -387,6 +426,7 @@
 				261F13642C80F7D40075A401 /* UIViewController+CustomTextFields.swift in Sources */,
 				263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */,
 				266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */,
+				26B41E602CB97B1100599D20 /* ExerciseCatergoryServiceProtocol.swift in Sources */,
 				269571732C5438040054021B /* HomeService.swift in Sources */,
 				26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */,
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
@@ -395,13 +435,21 @@
 				261588A02C8F762300D05171 /* ExerciseTableViewCell.swift in Sources */,
 				260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */,
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
+				263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */,
 				263AB5D72C82BCE0008B7716 /* RegisterExerciseViewModel.swift in Sources */,
 				2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */,
+				263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */,
+				26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */,
 				2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */,
-				26CCB31C2C7C00F6002FEA4D /* ExerciseService.swift in Sources */,
+				26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */,
+				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
+				26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */,
+				26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */,
 				26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */,
 				26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */,
+				26B41E632CB97BF600599D20 /* ExerciseServiceProtocol.swift in Sources */,
+				26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */,
 				26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
