@@ -24,6 +24,8 @@
 		266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266324D42C4FF68B006B5096 /* HomeViewModel.swift */; };
 		269571732C5438040054021B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571722C5438040054021B /* HomeService.swift */; };
 		269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571742C543B660054021B /* CategoryExerciseRequest.swift */; };
+		26A290692CC15D350020E3EC /* ExerciseCategoryHomeViewRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A290682CC15D350020E3EC /* ExerciseCategoryHomeViewRow.xib */; };
+		26A2906D2CC1686D0020E3EC /* ExerciseCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A2906C2CC1686D0020E3EC /* ExerciseCategoryTableViewCell.swift */; };
 		26A634A02C55C66B004D3937 /* ExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6349F2C55C66B004D3937 /* ExerciseRequest.swift */; };
 		26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */; };
 		26B0C6FF2C7F767B005C1FA9 /* RegisterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */; };
@@ -92,6 +94,8 @@
 		266324D42C4FF68B006B5096 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		269571722C5438040054021B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		269571742C543B660054021B /* CategoryExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExerciseRequest.swift; sourceTree = "<group>"; };
+		26A290682CC15D350020E3EC /* ExerciseCategoryHomeViewRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCategoryHomeViewRow.xib; sourceTree = "<group>"; };
+		26A2906C2CC1686D0020E3EC /* ExerciseCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		26A6349F2C55C66B004D3937 /* ExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRequest.swift; sourceTree = "<group>"; };
 		26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewModel.swift; sourceTree = "<group>"; };
 		26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterExerciseViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				264608692C87540C0085E1AA /* EditExerciseViewController.swift */,
 				2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */,
 				2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */,
+				26A290682CC15D350020E3EC /* ExerciseCategoryHomeViewRow.xib */,
+				26A2906C2CC1686D0020E3EC /* ExerciseCategoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A290692CC15D350020E3EC /* ExerciseCategoryHomeViewRow.xib in Resources */,
 				26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */,
 				26D6FBC12C704780007F781B /* Montserrat-ExtraBold.ttf in Resources */,
 				26D6FBC62C704780007F781B /* Montserrat-Light.ttf in Resources */,
@@ -437,6 +444,7 @@
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
 				263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */,
 				263AB5D72C82BCE0008B7716 /* RegisterExerciseViewModel.swift in Sources */,
+				26A2906D2CC1686D0020E3EC /* ExerciseCategoryTableViewCell.swift in Sources */,
 				2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */,
 				263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */,
 				26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */,

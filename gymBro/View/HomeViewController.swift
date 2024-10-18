@@ -34,6 +34,11 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         showExercicesCategory()
+        registerCategoryCellNib()
+    }
+    
+    func registerCategoryCellNib() {
+        tableView.register(UINib(nibName: "ExerciseCategoryHomeViewRow", bundle: nil), forCellReuseIdentifier: "ExerciseCategoryCell")
     }
     
     @IBAction func logoutButtonTap(_ sender: Any) {
@@ -173,28 +178,27 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let model = data[indexPath.item]
-        var content = cell.defaultContentConfiguration()
-        content.text = model.categoryName
-        content.secondaryText = model.weekDay
-        content.secondaryTextProperties.color = .systemBlue
-        cell.contentConfiguration = content
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCategoryCell", for: indexPath) as? ExerciseCategoryTableViewCell else {
+            return UITableViewCell()
+        }
+            
+        let exerciseCategoryRow = data[indexPath.item]
+        let categoryName = exerciseCategoryRow.categoryName
+        let weekDay: String? = exerciseCategoryRow.weekDay
+        cell.configureCell(categoryName: categoryName, daysOfWeek: weekDay)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Exercices"
     }
-}
 
-extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedRowId = data[indexPath.row].id
