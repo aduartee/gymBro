@@ -33,12 +33,15 @@ class HomeViewController: UIViewController {
         self.tableView.dataSource = self
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         showExercicesCategory()
         registerCategoryCellNib()
+        tableView.estimatedRowHeight = 100 // Defina uma estimativa que faça sentido
+        tableView.rowHeight = UITableView.automaticDimension // Permita que a altura seja dinâmica
     }
     
     func registerCategoryCellNib() {
-        tableView.register(UINib(nibName: "ExerciseCategoryHomeViewRow", bundle: nil), forCellReuseIdentifier: "ExerciseCategoryCell")
+        tableView.register(UINib(nibName: "ExerciseCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseCategoryCell")
     }
     
     @IBAction func logoutButtonTap(_ sender: Any) {
@@ -191,7 +194,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let exerciseCategoryRow = data[indexPath.item]
         let categoryName = exerciseCategoryRow.categoryName
         let weekDay: String? = exerciseCategoryRow.weekDay
-        cell.configureCell(categoryName: categoryName, daysOfWeek: weekDay)
+        cell.configureCell(exerciseName: categoryName, weekDay: weekDay)
         return cell
     }
     
@@ -211,6 +214,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let swipeAction = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeAction
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 135
+    }
 }
 
 extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {
@@ -221,7 +228,6 @@ extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDele
             
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .fade)
-            
         }
     }
     

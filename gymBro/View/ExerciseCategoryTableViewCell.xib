@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ExerciseCategoryCell" selectionStyle="default" indentationWidth="10" rowHeight="157" id="KGk-i7-Jjw" customClass="ExerciseCategoryTableViewCell" customModule="gymBro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJq-cK-Mvs">
+                        <rect key="frame" x="10" y="10" width="300" height="137"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dumble-2" translatesAutoresizingMaskIntoConstraints="NO" id="DJ8-9m-ZI2">
+                                <rect key="frame" x="15" y="30" width="82" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="jll-tr-Dn1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-Wb-xTd">
+                                <rect key="frame" x="127" y="20.000000000000004" width="173" height="32.333333333333343"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zu-sF-m5M">
+                                <rect key="frame" x="127" y="52.333333333333343" width="173" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Zu-sF-m5M" secondAttribute="trailing" id="0OV-Vr-D0w"/>
+                            <constraint firstAttribute="trailing" secondItem="F80-Wb-xTd" secondAttribute="trailing" id="60Y-G9-cOV"/>
+                            <constraint firstItem="F80-Wb-xTd" firstAttribute="leading" secondItem="DJ8-9m-ZI2" secondAttribute="trailing" constant="30" id="AIc-ca-tFH"/>
+                            <constraint firstAttribute="trailing" secondItem="F80-Wb-xTd" secondAttribute="trailing" id="RUz-uZ-leq"/>
+                            <constraint firstItem="2Zu-sF-m5M" firstAttribute="leading" secondItem="DJ8-9m-ZI2" secondAttribute="trailing" constant="30" id="Wgs-Ki-sGu"/>
+                            <constraint firstItem="2Zu-sF-m5M" firstAttribute="top" secondItem="F80-Wb-xTd" secondAttribute="bottom" id="aD0-2i-AXW"/>
+                            <constraint firstItem="F80-Wb-xTd" firstAttribute="top" secondItem="oJq-cK-Mvs" secondAttribute="top" constant="20" id="az8-Su-L4r"/>
+                            <constraint firstAttribute="bottom" secondItem="DJ8-9m-ZI2" secondAttribute="bottom" constant="30" id="iX8-Ov-e9f"/>
+                            <constraint firstItem="DJ8-9m-ZI2" firstAttribute="leading" secondItem="oJq-cK-Mvs" secondAttribute="leading" constant="15" id="oui-Gs-1g0"/>
+                            <constraint firstItem="DJ8-9m-ZI2" firstAttribute="top" secondItem="oJq-cK-Mvs" secondAttribute="top" constant="30" id="tix-Kz-9nv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oJq-cK-Mvs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3TU-vc-am6"/>
+                    <constraint firstAttribute="bottom" secondItem="oJq-cK-Mvs" secondAttribute="bottom" constant="10" id="mgy-kA-waB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oJq-cK-Mvs" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="10" id="JOi-SD-iqu"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="oJq-cK-Mvs" secondAttribute="trailing" constant="10" id="s60-5X-gzz"/>
+            </constraints>
+            <connections>
+                <outlet property="exerciseNameLabel" destination="F80-Wb-xTd" id="IlO-Do-0eE"/>
+                <outlet property="tryView" destination="oJq-cK-Mvs" id="Kpy-HR-GqT"/>
+                <outlet property="weekDayLabel" destination="2Zu-sF-m5M" id="ZRk-Y0-6N3"/>
+            </connections>
+            <point key="canvasLocation" x="106.87022900763358" y="32.74647887323944"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Dumble-2" width="610" height="250"/>
+    </resources>
+</document>

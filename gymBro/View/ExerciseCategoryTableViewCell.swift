@@ -2,18 +2,31 @@
 //  ExerciseCategoryTableViewCell.swift
 //  gymBro
 //
-//  Created by Arthur Duarte on 17/10/24.
+//  Created by Arthur Duarte on 20/10/24.
 //
 
 import UIKit
 
 class ExerciseCategoryTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var categoryNameTextLabel: UILabel!
-    @IBOutlet weak var daysOfWeekTextLabel: UILabel!
-    
-    func configureCell(categoryName: String, daysOfWeek: String?) {
-        categoryNameTextLabel.text = categoryName
-        daysOfWeekTextLabel.text =  daysOfWeek ?? ""
+
+    @IBOutlet weak var tryView: UIView!
+    @IBOutlet weak var weekDayLabel: UILabel!
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        tryView.layer.cornerRadius = 25.0
+        tryView.layer.masksToBounds = true
     }
+    
+    func configureCell(exerciseName: String, weekDay: String?) {
+        exerciseNameLabel.text = exerciseName
+        weekDayLabel.text = weekDay ?? ""
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+     
+    }
+    
 }
