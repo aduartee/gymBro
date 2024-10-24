@@ -33,11 +33,9 @@ class HomeViewController: UIViewController {
         self.tableView.dataSource = self
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         showExercicesCategory()
         registerCategoryCellNib()
-        tableView.estimatedRowHeight = 100 // Defina uma estimativa que faça sentido
-        tableView.rowHeight = UITableView.automaticDimension // Permita que a altura seja dinâmica
+        tableView.estimatedRowHeight = 100
     }
     
     func registerCategoryCellNib() {
@@ -67,6 +65,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func refreshData() {
+        self.refreshControl.tintColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
         self.refreshControl.endRefreshing()
         showExercicesCategory()
     }
