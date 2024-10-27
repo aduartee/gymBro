@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNewCategoryButton: UIButton!
+    @IBOutlet weak var exampleProfileImage: UIImageView!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
     private var selectedRowId: String = ""
@@ -62,6 +63,12 @@ class HomeViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         usernameLabel.alpha = 0
         showUsernameLabel()
+        styleProfileImage()
+    }
+    
+    func styleProfileImage() {
+        exampleProfileImage.layer.cornerRadius = 25
+        exampleProfileImage.layer.masksToBounds = true
     }
     
     @objc func refreshData() {
