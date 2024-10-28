@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */; };
+		260F19F72CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */; };
+		260F19F82CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */; };
 		2615889C2C8F6C7A00D05171 /* ExerciseViewRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */; };
 		261588A02C8F762300D05171 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */; };
 		2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616AB692C435C4D006D4D99 /* SignUpViewController.swift */; };
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciceCategoryViewModel.swift; sourceTree = "<group>"; };
+		260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseViewRow.xib; sourceTree = "<group>"; };
 		2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		2616AB692C435C4D006D4D99 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				264608692C87540C0085E1AA /* EditExerciseViewController.swift */,
 				2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */,
 				2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */,
+				260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */,
+				260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */,
 				26D6FBC32C704780007F781B /* Montserrat-ExtraLight.ttf in Resources */,
 				2615889C2C8F6C7A00D05171 /* ExerciseViewRow.xib in Resources */,
+				260F19F82CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib in Resources */,
 				26D6FBCA2C704780007F781B /* Montserrat-Regular.ttf in Resources */,
 				26D6FBC82C704780007F781B /* Montserrat-Medium.ttf in Resources */,
 				26D6FBD22C704780007F781B /* README.txt in Resources */,
@@ -437,6 +444,7 @@
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
 				263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */,
 				263AB5D72C82BCE0008B7716 /* RegisterExerciseViewModel.swift in Sources */,
+				260F19F72CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift in Sources */,
 				2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */,
 				263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */,
 				26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */,

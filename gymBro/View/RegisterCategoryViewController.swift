@@ -44,7 +44,7 @@ class RegisterCategoryViewController: UIViewController {
         showEmptyMessage()
         styleHeaderView()
         guard let idCategory = idCategory else { return }
-//        changeExerciseInfo(idCategory: idCategory)
+        changeExerciseInfo(idCategory: idCategory)
     }
     
     private func styleHeaderView() {
@@ -81,7 +81,7 @@ class RegisterCategoryViewController: UIViewController {
             guard let self = self else { return }
             
             if let error = error {
-                self.showCustomAlert(title: "Error", message: "\(error)")
+                self.showCustomAlert(title: "Warning", message: "\(error.localizedDescription)")
                 return
             }
             

@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNewCategoryButton: UIButton!
+    @IBOutlet weak var exampleProfileImage: UIImageView!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
     private var selectedRowId: String = ""
@@ -34,6 +35,12 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         showExercicesCategory()
+        registerCategoryCellNib()
+        tableView.estimatedRowHeight = 100
+    }
+    
+    func registerCategoryCellNib() {
+        tableView.register(UINib(nibName: "ExerciseCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseCategoryCell")
     }
     
     @IBAction func logoutButtonTap(_ sender: Any) {
@@ -56,9 +63,16 @@ class HomeViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         usernameLabel.alpha = 0
         showUsernameLabel()
+        styleProfileImage()
+    }
+    
+    func styleProfileImage() {
+        exampleProfileImage.layer.cornerRadius = 25
+        exampleProfileImage.layer.masksToBounds = true
     }
     
     @objc func refreshData() {
+        self.refreshControl.tintColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
         self.refreshControl.endRefreshing()
         showExercicesCategory()
     }
@@ -173,28 +187,27 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let model = data[indexPath.item]
-        var content = cell.defaultContentConfiguration()
-        content.text = model.categoryName
-        content.secondaryText = model.weekDay
-        content.secondaryTextProperties.color = .systemBlue
-        cell.contentConfiguration = content
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCategoryCell", for: indexPath) as? ExerciseCategoryTableViewCell else {
+            return UITableViewCell()
+        }
+            
+        let exerciseCategoryRow = data[indexPath.item]
+        let categoryName = exerciseCategoryRow.categoryName
+        let weekDay: String? = exerciseCategoryRow.weekDay
+        cell.configureCell(exerciseName: categoryName, weekDay: weekDay)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Exercices"
     }
-}
 
-extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedRowId = data[indexPath.row].id
@@ -207,6 +220,10 @@ extension HomeViewController: UITableViewDelegate {
         let swipeAction = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return swipeAction
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 135
+    }
 }
 
 extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {
@@ -217,7 +234,6 @@ extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDele
             
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .fade)
-            
         }
     }
     
