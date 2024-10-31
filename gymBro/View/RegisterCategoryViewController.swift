@@ -33,7 +33,7 @@ class RegisterCategoryViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         styleView()
-        
+        tableView.estimatedRowHeight = 100
         tableView.register(UINib(nibName: "ExerciseViewRow", bundle: nil), forCellReuseIdentifier: "ExerciseCell")
 
         guard let idCategory = idCategory else { return }
@@ -209,6 +209,10 @@ extension RegisterCategoryViewController: UITableViewDataSource, UITableViewDele
         let removeAction = removeRow(indexPath: indexPath)
         let swipeActions = UISwipeActionsConfiguration(actions: [removeAction, editAction])
         return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 

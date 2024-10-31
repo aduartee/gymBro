@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNewCategoryButton: UIButton!
     @IBOutlet weak var exampleProfileImage: UIImageView!
+    @IBOutlet weak var viewWOD: UIView!
+    @IBOutlet weak var cardWOFUIView: UIView!
+    @IBOutlet weak var backgroundProfileSection: UIView!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
     private var selectedRowId: String = ""
@@ -37,6 +40,7 @@ class HomeViewController: UIViewController {
         showExercicesCategory()
         registerCategoryCellNib()
         tableView.estimatedRowHeight = 100
+        self.tableView.tableHeaderView =  viewWOD
     }
     
     func registerCategoryCellNib() {
@@ -64,6 +68,24 @@ class HomeViewController: UIViewController {
         usernameLabel.alpha = 0
         showUsernameLabel()
         styleProfileImage()
+        styleViewWOF()
+        styleBackgroundProfileSection()
+    }
+    
+    func styleViewWOF() {
+        cardWOFUIView.layer.masksToBounds = true
+        cardWOFUIView.layer.cornerRadius = 30
+        let headerWidth: CGFloat = 150
+        viewWOD.frame = CGRect(x: 0, y: 0, width: headerWidth, height: 160)
+    }
+    
+    func styleBackgroundProfileSection() {
+        backgroundProfileSection.layer.masksToBounds = true
+        backgroundProfileSection.layer.cornerRadius = 40.0
+        backgroundProfileSection.layer.cornerRadius = 40.0
+        backgroundProfileSection.layer.masksToBounds = true
+        backgroundProfileSection.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+
     }
     
     func styleProfileImage() {
@@ -224,6 +246,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return viewWOD
+//    }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 40
+//    }
 }
 
 extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {
