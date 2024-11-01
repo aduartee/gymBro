@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addNewCategoryButton: UIButton!
     @IBOutlet weak var exampleProfileImage: UIImageView!
+    @IBOutlet weak var viewWOD: UIView!
+    @IBOutlet weak var cardWOFUIView: UIView!
+    @IBOutlet weak var backgroundProfileSection: UIView!
     var homeViewModel: HomeViewModel = HomeViewModel()
     var data: [CategoryExerciseRequest] = []
     private var selectedRowId: String = ""
@@ -37,6 +40,7 @@ class HomeViewController: UIViewController {
         showExercicesCategory()
         registerCategoryCellNib()
         tableView.estimatedRowHeight = 100
+        self.tableView.tableHeaderView =  viewWOD
     }
     
     func registerCategoryCellNib() {
@@ -64,6 +68,24 @@ class HomeViewController: UIViewController {
         usernameLabel.alpha = 0
         showUsernameLabel()
         styleProfileImage()
+        styleViewWOF()
+        styleBackgroundProfileSection()
+    }
+    
+    func styleViewWOF() {
+        cardWOFUIView.layer.masksToBounds = true
+        cardWOFUIView.layer.cornerRadius = 30
+        let headerWidth: CGFloat = 150
+        viewWOD.frame = CGRect(x: 0, y: 0, width: headerWidth, height: 160)
+    }
+    
+    func styleBackgroundProfileSection() {
+        backgroundProfileSection.layer.masksToBounds = true
+        backgroundProfileSection.layer.cornerRadius = 40.0
+        backgroundProfileSection.layer.cornerRadius = 40.0
+        backgroundProfileSection.layer.masksToBounds = true
+        backgroundProfileSection.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+
     }
     
     func styleProfileImage() {
@@ -137,6 +159,7 @@ class HomeViewController: UIViewController {
                 sheet.preferredCornerRadius = 20
                 sheet.prefersGrabberVisible = true
             }
+            
             present(editCategoryVC, animated: true)
         }
     }
@@ -144,8 +167,18 @@ class HomeViewController: UIViewController {
     private func goToRegisterTypeCategoryVC() {
         if let registerCategoryVC = storyboard?.instantiateViewController(withIdentifier: "RegisterTypeCategoryView") as? RegisterTypeCategoryViewController {
             registerCategoryVC.delegate = self
-            let navController = UINavigationController(rootViewController: registerCategoryVC)
-            present(navController, animated: true)
+            
+            if let sheet = registerCategoryVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { context in
+                    return context.maximumDetentValue * 0.72
+                }
+                
+                sheet.detents = [customDetent, .large()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+            }
+            
+            present(registerCategoryVC, animated: true)
         }
     }
     
@@ -224,6 +257,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return viewWOD
+//    }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 40
+//    }
 }
 
 extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {

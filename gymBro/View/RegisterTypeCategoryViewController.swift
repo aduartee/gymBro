@@ -87,6 +87,15 @@ extension RegisterTypeCategoryViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return daysOfWeek[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = view as? UILabel ?? UILabel()
+        pickerLabel.text = daysOfWeek[row]
+        pickerLabel.font = UIFont(name: "Helvetica", size: 21)
+        pickerLabel.textColor = .systemBlue
+        pickerLabel.textAlignment = .center
+        return pickerLabel
+    }
 }
 
 extension RegisterTypeCategoryViewController: UIPickerViewDelegate {

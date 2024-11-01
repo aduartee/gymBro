@@ -17,7 +17,7 @@ class FirestoreDocumentUtil {
     
     static func isDocumentExistDocuments(_ querySnapshot: QuerySnapshot?) -> Result<[QueryDocumentSnapshot], NSError> {
         guard let querySnapshot = querySnapshot, !querySnapshot.isEmpty else {
-            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise reference does not exist, register a new exercise and try again")
+            let documentError = ErrorUtil.createNSError(domain: "FirebaseError", description: "Exercise Series does not exist yet, register a new serie and try again")
             return .failure(documentError)
         }
         
