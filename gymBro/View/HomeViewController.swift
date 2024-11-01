@@ -159,6 +159,7 @@ class HomeViewController: UIViewController {
                 sheet.preferredCornerRadius = 20
                 sheet.prefersGrabberVisible = true
             }
+            
             present(editCategoryVC, animated: true)
         }
     }
@@ -166,8 +167,18 @@ class HomeViewController: UIViewController {
     private func goToRegisterTypeCategoryVC() {
         if let registerCategoryVC = storyboard?.instantiateViewController(withIdentifier: "RegisterTypeCategoryView") as? RegisterTypeCategoryViewController {
             registerCategoryVC.delegate = self
-            let navController = UINavigationController(rootViewController: registerCategoryVC)
-            present(navController, animated: true)
+            
+            if let sheet = registerCategoryVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { context in
+                    return context.maximumDetentValue * 0.72
+                }
+                
+                sheet.detents = [customDetent, .large()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+            }
+            
+            present(registerCategoryVC, animated: true)
         }
     }
     
