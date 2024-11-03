@@ -13,6 +13,9 @@
         <array key="Montserrat-Bold.ttf">
             <string>Montserrat-Bold</string>
         </array>
+        <array key="Montserrat-Light.ttf">
+            <string>Montserrat-Light</string>
+        </array>
         <array key="Montserrat-Medium.ttf">
             <string>Montserrat-Medium</string>
         </array>
@@ -853,6 +856,100 @@
             </objects>
             <point key="canvasLocation" x="4091" y="403"/>
         </scene>
+        <!--Weights View Controller-->
+        <scene sceneID="Gd9-rL-PjF">
+            <objects>
+                <viewController storyboardIdentifier="weightListVc" id="s2T-jf-zwT" customClass="WeightsViewController" customModule="gymBro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yx9-ag-8po">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-ng-ROf">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="275"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJP-j1-TKI">
+                                        <rect key="frame" x="120.00000000000001" y="202.66666666666666" width="137.33333333333337" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iWf-kE-UGJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add Weight">
+                                            <fontDescription key="titleFontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                            <color key="baseBackgroundColor" red="0.0" green="0.1624227798833435" blue="0.47210665513265304" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvQ-oq-Iwp">
+                                        <rect key="frame" x="29.999999999999996" y="168" width="58.666666666666657" height="24.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KF-Tk-slg">
+                                        <rect key="frame" x="10.000000000000004" y="70" width="61.333333333333343" height="43.666666666666657"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                            <imageReference key="image" image="arrow.backward.circle.fill" catalog="system" variableValue="0.0"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapBackButton:" destination="s2T-jf-zwT" eventType="touchUpInside" id="vNh-qp-rwe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hn-fg-2yB">
+                                        <rect key="frame" x="25" y="123.66666666666667" width="358" height="39.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39.329999999999998" id="6wD-0o-f2t"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="npS-X5-6Br"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.33725490200000002" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="UvQ-oq-Iwp" firstAttribute="top" secondItem="1Hn-fg-2yB" secondAttribute="bottom" constant="5" id="FIo-E4-EsA"/>
+                                    <constraint firstItem="HJP-j1-TKI" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="120" id="NO3-1d-s2d"/>
+                                    <constraint firstAttribute="height" constant="275" id="OA3-Oq-b5j"/>
+                                    <constraint firstItem="9KF-Tk-slg" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="10" id="RSg-gg-VT7"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HJP-j1-TKI" secondAttribute="trailing" constant="20" symbolic="YES" id="XiH-6i-dOI"/>
+                                    <constraint firstItem="9KF-Tk-slg" firstAttribute="top" secondItem="fb7-ng-ROf" secondAttribute="top" constant="70" id="c0e-1H-me8"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Hn-fg-2yB" secondAttribute="trailing" constant="10" id="fWT-s6-eJN"/>
+                                    <constraint firstItem="UvQ-oq-Iwp" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="30" id="mf5-bK-wNW"/>
+                                    <constraint firstItem="1Hn-fg-2yB" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="25" id="mte-ha-dn7"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UvQ-oq-Iwp" secondAttribute="trailing" constant="20" symbolic="YES" id="qzj-dv-jZK"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9KF-Tk-slg" secondAttribute="trailing" constant="20" symbolic="YES" id="v7n-5g-R4H"/>
+                                    <constraint firstItem="1Hn-fg-2yB" firstAttribute="top" secondItem="9KF-Tk-slg" secondAttribute="bottom" constant="10" id="vYk-Ug-eoR"/>
+                                    <constraint firstItem="HJP-j1-TKI" firstAttribute="top" secondItem="UvQ-oq-Iwp" secondAttribute="bottom" constant="10" id="ynx-K5-nF9"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xo7-8C-1oQ">
+                                <rect key="frame" x="0.0" y="295" width="393" height="557"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k03-Y5-b4d"/>
+                        <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xo7-8C-1oQ" secondAttribute="bottom" id="CR2-S3-ycO"/>
+                            <constraint firstItem="fb7-ng-ROf" firstAttribute="trailing" secondItem="k03-Y5-b4d" secondAttribute="trailing" id="F57-f6-u9p"/>
+                            <constraint firstItem="fb7-ng-ROf" firstAttribute="top" secondItem="yx9-ag-8po" secondAttribute="top" id="Zkm-zT-Ijw"/>
+                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="top" secondItem="fb7-ng-ROf" secondAttribute="bottom" constant="20" id="c78-Ki-E0L"/>
+                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="trailing" secondItem="k03-Y5-b4d" secondAttribute="trailing" id="cm5-qV-Krv"/>
+                            <constraint firstItem="fb7-ng-ROf" firstAttribute="leading" secondItem="k03-Y5-b4d" secondAttribute="leading" id="rPj-oD-zPe"/>
+                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="leading" secondItem="k03-Y5-b4d" secondAttribute="leading" id="xRv-ti-xwA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addWeigthButton" destination="HJP-j1-TKI" id="S2a-Mz-FJH"/>
+                        <outlet property="tableView" destination="xo7-8C-1oQ" id="cBs-Km-UT6"/>
+                        <outlet property="topSectionView" destination="fb7-ng-ROf" id="GTf-oQ-bGt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQv-Xc-Hya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4843.5114503816794" y="257.04225352112678"/>
+        </scene>
         <!--Edit Category View Controller-->
         <scene sceneID="inI-bg-nsY">
             <objects>
@@ -986,12 +1083,16 @@
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="arrow.backward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="gymBroLogo" width="714" height="174"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="profilePic-transformed" width="474" height="430"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
