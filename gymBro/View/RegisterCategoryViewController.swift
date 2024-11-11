@@ -182,7 +182,7 @@ class RegisterCategoryViewController: UIViewController {
     
     
     private func removeRow(indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Remove") {  [weak self] (_, _, _) in
+        let action = UIContextualAction(style: .normal, title: "Remove") { [weak self] (_, _, _) in
             guard let self = self else { return }
             let selectedRowId = data[indexPath.row].id
             goToEditView(selectedRowexerciseId: selectedRowId)

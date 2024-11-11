@@ -24,6 +24,9 @@
 		263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */; };
 		2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264608692C87540C0085E1AA /* EditExerciseViewController.swift */; };
 		2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */; };
+		2649D7EA2CDBBBFB0094988E /* WeightsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */; };
+		2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */; };
+		2649D7EE2CDBC6B20094988E /* RegisterWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */; };
 		266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266324D42C4FF68B006B5096 /* HomeViewModel.swift */; };
 		269571732C5438040054021B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571722C5438040054021B /* HomeService.swift */; };
 		269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571742C543B660054021B /* CategoryExerciseRequest.swift */; };
@@ -43,6 +46,10 @@
 		26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17962C41D48000E682E5 /* Assets.xcassets */; };
 		26BA179A2C41D48000E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17992C41D48000E682E5 /* Base */; };
 		26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */; };
+		26D5426C2CE199600039D8E1 /* RegisterWeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5426B2CE199520039D8E1 /* RegisterWeightViewModel.swift */; };
+		26D5426E2CE199E90039D8E1 /* WeightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5426D2CE199C90039D8E1 /* WeightService.swift */; };
+		26D542702CE19A770039D8E1 /* FirestoreWeightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */; };
+		26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */; };
 		26D6FBBD2C704780007F781B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA52C704780007F781B /* Montserrat-Black.ttf */; };
 		26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */; };
 		26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */; };
@@ -96,6 +103,9 @@
 		263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExerciseService.swift; sourceTree = "<group>"; };
 		264608692C87540C0085E1AA /* EditExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewController.swift; sourceTree = "<group>"; };
 		2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewModel.swift; sourceTree = "<group>"; };
+		2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewModelProtocol.swift; sourceTree = "<group>"; };
+		2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsRequest.swift; sourceTree = "<group>"; };
+		2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeightViewController.swift; sourceTree = "<group>"; };
 		266324D42C4FF68B006B5096 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		269571722C5438040054021B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		269571742C543B660054021B /* CategoryExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExerciseRequest.swift; sourceTree = "<group>"; };
@@ -117,6 +127,10 @@
 		26BA17992C41D48000E682E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26BA179B2C41D48000E682E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
+		26D5426B2CE199520039D8E1 /* RegisterWeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeightViewModel.swift; sourceTree = "<group>"; };
+		26D5426D2CE199C90039D8E1 /* WeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightService.swift; sourceTree = "<group>"; };
+		26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreWeightService.swift; sourceTree = "<group>"; };
+		26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDatabaseServiceProtocol.swift; sourceTree = "<group>"; };
 		26D6FBA52C704780007F781B /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -226,6 +240,7 @@
 				260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */,
 				260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */,
 				26E4221A2CD597BA001B772D /* WeightsViewController.swift */,
+				2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +248,7 @@
 		26BA17A22C41D4D900E682E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */,
 				26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */,
 				26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */,
 				26E69AE02C4955E300F52FBB /* SignInUserRequest.swift */,
@@ -284,6 +300,7 @@
 		26E0B0082C449DD400C29539 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				26D5426B2CE199520039D8E1 /* RegisterWeightViewModel.swift */,
 				260BA2202CD82CA70020EE22 /* WeightsViewModel.swift */,
 				26E0B00A2C449E9000C29539 /* SignInViewModel.swift */,
 				263440622C4B434E00F9726B /* RegisterUserViewModel.swift */,
@@ -300,6 +317,10 @@
 		26E0B0092C449DDF00C29539 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */,
+				26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */,
+				26D5426D2CE199C90039D8E1 /* WeightService.swift */,
+				2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */,
 				26D8023D2CBD70C000907CC2 /* ExerciseService.swift */,
 				26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */,
 				26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */,
@@ -432,6 +453,7 @@
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
 				26B41E5E2CB9767E00599D20 /* ExerciseCategoryService.swift in Sources */,
 				26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */,
+				26D5426C2CE199600039D8E1 /* RegisterWeightViewModel.swift in Sources */,
 				260BA2212CD82CAD0020EE22 /* WeightsViewModel.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
@@ -447,6 +469,7 @@
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
 				26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */,
 				26B0C6FF2C7F767B005C1FA9 /* RegisterExerciseViewController.swift in Sources */,
+				26D542702CE19A770039D8E1 /* FirestoreWeightService.swift in Sources */,
 				261588A02C8F762300D05171 /* ExerciseTableViewCell.swift in Sources */,
 				260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */,
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
@@ -458,14 +481,19 @@
 				26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */,
 				2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */,
 				26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */,
+				26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */,
 				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
+				2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
 				26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */,
+				26D5426E2CE199E90039D8E1 /* WeightService.swift in Sources */,
 				26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */,
+				2649D7EE2CDBC6B20094988E /* RegisterWeightViewController.swift in Sources */,
 				26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */,
 				26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */,
 				26B41E632CB97BF600599D20 /* ExerciseServiceProtocol.swift in Sources */,
 				26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */,
+				2649D7EA2CDBBBFB0094988E /* WeightsViewModelProtocol.swift in Sources */,
 				26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeightsViewModel {
+class WeightsViewModel: WeightsViewModelProtocol {
     //Depedency Injection
     private var exerciseService: ExerciseServiceProtocol
     
@@ -15,6 +15,14 @@ class WeightsViewModel {
         self.exerciseService = exerciseService
     }
     
-    
-    
+    func getExerciseData(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+        exerciseService.fetchExerciseById(idCategory: idCategory, exerciseId: exerciseId) { data, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            completion(data, nil)
+        }
+    }
 }
