@@ -123,7 +123,7 @@ class RegisterCategoryViewController: UIViewController {
         }
     }
     
-    func goToWeightView(exerciseId: String) {
+    func goToWeightView(exerciseId: String, series: String) {
         if let listWeigthVC = storyboard?.instantiateViewController(withIdentifier: "weightListVc") as? WeightsViewController {
             guard let categoryId = idCategory else {
                 return
@@ -131,6 +131,7 @@ class RegisterCategoryViewController: UIViewController {
             
             listWeigthVC.exerciseId = exerciseId
             listWeigthVC.categoryId = categoryId
+            listWeigthVC.numberOfRepsExercise = series
             navigationController?.pushViewController(listWeigthVC, animated: true)
         }
     }
@@ -215,7 +216,7 @@ extension RegisterCategoryViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellData = data[indexPath.row]
-        goToWeightView(exerciseId: cellData.id)
+        goToWeightView(exerciseId: cellData.id, series: cellData.series)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

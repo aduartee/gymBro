@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5C3AFD27-0DB8-4749-99C9-6F76F563ADC5"
+            uuid = "466FE7ED-BF3C-4945-A9D9-F0537CFD69E5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gymBro/View/RegisterWeightViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "tapPlusButton(_:)"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "tapAddButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

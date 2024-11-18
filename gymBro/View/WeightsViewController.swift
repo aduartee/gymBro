@@ -10,6 +10,7 @@ import UIKit
 class WeightsViewController: UIViewController {
     var exerciseId: String = ""
     var categoryId: String = ""
+    var numberOfRepsExercise: String = ""
     var data: [WeightsRequest] = []
     var weightViewModel: WeightsViewModelProtocol!
     @IBOutlet weak var topSectionView: UIView!
@@ -84,17 +85,9 @@ class WeightsViewController: UIViewController {
     private func goToRegisterWeigthView() {
         if let registerWeightVC = storyboard?.instantiateViewController(withIdentifier: "registerWeightVC") as? RegisterWeightViewController {
             
-            if let sheet = registerWeightVC.sheetPresentationController {
-                let customDetent = UISheetPresentationController.Detent.custom { context in
-                    return context.maximumDetentValue * 0.85
-                }
-                
-                sheet.detents = [customDetent, .large()]
-                sheet.preferredCornerRadius = 20
-                sheet.prefersGrabberVisible = true
-            }
-            
-            present(registerWeightVC, animated: true)
+            registerWeightVC.numberOfSeriesOfExercise = self.numberOfRepsExercise
+              registerWeightVC.modalPresentationStyle = .fullScreen
+              present(registerWeightVC, animated: true)
         }
         
         return

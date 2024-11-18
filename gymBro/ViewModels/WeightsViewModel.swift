@@ -10,9 +10,11 @@ import Foundation
 class WeightsViewModel: WeightsViewModelProtocol {
     //Depedency Injection
     private var exerciseService: ExerciseServiceProtocol
+    private var weightService: WeightsServiceProtocol
     
-    init (exerciseService: ExerciseServiceProtocol = ExerciseService.shared) {
+    init (exerciseService: ExerciseServiceProtocol = ExerciseService.shared, weightService: WeightsServiceProtocol = WeightService.shared) {
         self.exerciseService = exerciseService
+        self.weightService = weightService
     }
     
     func getExerciseData(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
