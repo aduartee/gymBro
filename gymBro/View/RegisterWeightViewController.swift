@@ -26,26 +26,47 @@ class RegisterWeightViewController: UIViewController {
     ]
     var currentIndex: Int = 0
     
+    @IBOutlet weak var weightRowView: UIView!
+    @IBOutlet weak var repsRowView: UIView!
+    @IBOutlet weak var diffcultRowView: UIView!
+    @IBOutlet weak var weightLabelRow: UILabel!
     @IBOutlet weak var trackerRegistersTable: UITableView!
     @IBOutlet weak var numberOfSeriesRepsLabel: UILabel!
     @IBOutlet weak var difficultButton: UIButton!
-    @IBOutlet weak var weightLiftedField: UITextField!
-    @IBOutlet weak var numberOfRepsPicker: UIPickerView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet var weightAddCollection: [UIButton]!
+    @IBOutlet weak var numberOfrepsLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(registeredWeightData)
         configureTableView()
+        registerTrackerXIBCell()
         injectWeightsVMDepedecy()
-        configureWeightLiftedField()
-        configurePickerData()
+        styleBackgroundRowViews()
         styleDifficultButton()
+        self.navigationItem.title = "Teste"
     }
     
+    private func styleBackgroundRowViews() {
+        weightRowView.layer.masksToBounds = true
+        repsRowView.layer.masksToBounds = true
+        diffcultRowView.layer.masksToBounds = true
+        weightRowView.layer.cornerRadius = 20
+        repsRowView.layer.cornerRadius = 20
+        diffcultRowView.layer.cornerRadius = 20
+    }
     private func configureTableView() {
         trackerRegistersTable.delegate = self
         trackerRegistersTable.dataSource = self
+    }
+    
+    private func registerTrackerXIBCell() {
+        trackerRegistersTable.register(UINib(nibName: "WeigthViewCellXib", bundle:  nil), forCellReuseIdentifier: "WeigthViewCellXib")
     }
     
     
@@ -89,19 +110,19 @@ class RegisterWeightViewController: UIViewController {
         }
     }
     
-    private func configurePickerData() {
-        self.numberOfRepsPicker.delegate = self
-        self.numberOfRepsPicker.dataSource = self
-        for number in 1...20 {
-            numberOfReps.append(number)
-        }
-    }
+//    private func configurePickerData() {
+//        self.numberOfRepsPicker.delegate = self
+//        self.numberOfRepsPicker.dataSource = self
+//        for number in 1...20 {
+//            numberOfReps.append(number)
+//        }
+//    }
     
-    private func configureWeightLiftedField() {
-        UIView.transition(with: weightLiftedField, duration: 0.1, options: .transitionCrossDissolve, animations: {
-            self.weightLiftedField.text = "\(self.weightLiftedValue) kg"
-        })
-    }
+//    private func configureWeightLiftedField() {
+//        UIView.transition(with: weightLiftedField, duration: 0.1, options: .transitionCrossDissolve, animations: {
+//            self.weightLiftedField.text = "\(self.weightLiftedValue) kg"
+//        })
+//    }
     
     private func styleDifficultButton() {
         difficultButton.layer.cornerRadius = difficultButton.frame.height / 2
@@ -144,22 +165,28 @@ class RegisterWeightViewController: UIViewController {
         dataOfEachSerie[serie] = data
     }
 
+    private func goToAddRepetionsVC() {
+        if let addRepsVC = storyboard?.instantiateViewController(withIdentifier: "addRepsVC") as? addRepsViewController {
+            addRepsVC.delegate = self
+            
+            if let sheetController = addRepsVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { _ in
+                    return 320
+                }
+                
+                sheetController.detents = [customDetent]
+                sheetController.prefersGrabberVisible = false
+                sheetController.preferredCornerRadius = 20
+            }
+            
+            present(addRepsVC, animated: true)
+        }
+        
+    }
     
     @IBAction func tapChangeDifficult(_ sender: Any) {
         currentIndex = (currentIndex + 1) % cardContent.count
         changeButtonContent()
-    }
-    
-    @IBAction func tapPlusButton(_ sender: Any) {
-        weightLiftedValue += 2
-        configureWeightLiftedField()
-    }
-    
-    @IBAction func tapMinusButton(_ sender: Any) {
-        if weightLiftedValue > 0 {
-            weightLiftedValue -= 2
-            configureWeightLiftedField()
-        }
     }
     
     @IBAction func tapAddButton(_ sender: Any) {
@@ -180,10 +207,32 @@ class RegisterWeightViewController: UIViewController {
         }
     }
     
-    
     @IBAction func tapCancelButton(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func tapAddWeigthButton(_ sender: Any) {
+        if let addWeightVC = storyboard?.instantiateViewController(withIdentifier: "addNewWeightModalVC") as? addNewWeightModalViewController {
+            addWeightVC.delegate = self
+            if let sheetController = addWeightVC.sheetPresentationController {
+                let customDetent = UISheetPresentationController.Detent.custom { _ in
+                    return 320
+                }
+                
+                sheetController.detents = [customDetent]
+                sheetController.preferredCornerRadius = 20
+                sheetController.prefersGrabberVisible = false
+            }
+           
+            present(addWeightVC, animated: true)
+        }
+    }
+    
+    
+    @IBAction func tapAddRepetitionsButton(_ sender: Any) {
+        goToAddRepetionsVC()
+    }
+    
 }
 
 extension RegisterWeightViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -219,16 +268,55 @@ extension RegisterWeightViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = trackerRegistersTable.dequeueReusableCell(withIdentifier: "MyCellTest") ?? UITableViewCell(style: .default, reuseIdentifier: "MyCellTest")
-       
+//        let cell = trackerRegistersTable.dequeueReusableCell(withIdentifier: "MyCellTest") ?? UITableViewCell(style: .default, reuseIdentifier: "MyCellTest")
+        
+        guard let cell = trackerRegistersTable.dequeueReusableCell(withIdentifier: "WeigthViewCellXib", for: indexPath) as? WeigthViewCellXib else {
+            return UITableViewCell()
+        }
+        
         let keys = dataOfEachSerie.keys.sorted()
         let key = keys[indexPath.row]
         
         if let weightData = dataOfEachSerie[key] {
+            let weightValue: String = String(weightData.weight)
+            let repsValue: String = String(weightData.repetitions)
+            let difficult: String = "🔥"
+            print(difficult)
             
-            cell.textLabel?.text = "Serie \(key): Peso \(weightData.weight)"
+            cell.changeInfoRegistered(weight: weightValue, reps: repsValue, difficult: difficult)
         }
         
         return cell
+    }
+}
+
+//extension RegisterWeightViewController: UIAdaptivePresentationControllerDelegate {
+//    func presentationController(_ presentationController: UIPresentationController,
+//                                willPresentWithAdaptiveStyle style: UIModalPresentationStyle,
+//                                transitionCoordinator: UIViewControllerTransitionCoordinator?) {
+//        
+//        if let sheetController = presentationController as? UISheetPresentationController {
+//            let customDentent = UISheetPresentationController.Detent.custom { _ in
+//                return 320
+//            }
+//            sheetController.detents = [customDentent]
+//            sheetController.largestUndimmedDetentIdentifier = .medium
+//            sheetController.prefersGrabberVisible = false
+//        }
+//    }
+//}
+
+extension RegisterWeightViewController: AddWeightDelegate, addRepsDelegate {
+    func didAddWeight(selectedRowPicker: String) {
+        if selectedRowPicker != "" {
+            weightLabelRow.text = selectedRowPicker
+        }
+    }
+    
+    func didAddReps(selectedRepsValue: String) {
+        print(selectedRepsValue)
+        if selectedRepsValue != "" {
+            numberOfrepsLabel.text = selectedRepsValue
+        }
     }
 }

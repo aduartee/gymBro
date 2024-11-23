@@ -86,11 +86,8 @@ class WeightsViewController: UIViewController {
         if let registerWeightVC = storyboard?.instantiateViewController(withIdentifier: "registerWeightVC") as? RegisterWeightViewController {
             
             registerWeightVC.numberOfSeriesOfExercise = self.numberOfRepsExercise
-              registerWeightVC.modalPresentationStyle = .fullScreen
-              present(registerWeightVC, animated: true)
+            navigationController?.pushViewController(registerWeightVC, animated: true)
         }
-        
-        return
     }
 }
 
