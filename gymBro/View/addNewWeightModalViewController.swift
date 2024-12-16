@@ -35,7 +35,7 @@ class addNewWeightModalViewController: UIViewController {
     
     func configureUIPickerView() {
         for i in 1...400 {
-            weigthValues.append("\(i) kg")
+            weigthValues.append("\(i)")
         }
     }
 }
@@ -50,7 +50,7 @@ extension addNewWeightModalViewController: UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return weigthValues[row]
+        return "\(weigthValues[row]) kg"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -59,7 +59,7 @@ extension addNewWeightModalViewController: UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = view as? UILabel ?? UILabel()
-        pickerLabel.text = String(weigthValues[row])
+        pickerLabel.text = "\(weigthValues[row]) kg"
         pickerLabel.font = UIFont(name: "Helvetica", size: 30)
         pickerLabel.textColor = .systemBlue
         pickerLabel.textAlignment = .center

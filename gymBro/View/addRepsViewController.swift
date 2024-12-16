@@ -8,13 +8,13 @@
 import UIKit
 
 protocol addRepsDelegate: AnyObject {
-    func didAddReps(selectedRepsValue: String)
+    func didAddReps(selectedRepsValue: Int)
 }
 
 class addRepsViewController: UIViewController {
     @IBOutlet weak var repsPickerView: UIPickerView!
-    var dataReps: [String] = []
-    var selectedReps: String = ""
+    var dataReps: [Int] = []
+    var selectedReps: Int = 1
     var delegate: addRepsDelegate?
     
     override func viewDidLoad() {
@@ -35,11 +35,9 @@ class addRepsViewController: UIViewController {
     
     func createRangeOfReps() {
         for i in 1...20 {
-            dataReps.append("\(i)x")
+            dataReps.append(i)
         }
     }
-    
-    
 }
 
 extension addRepsViewController:UIPickerViewDelegate, UIPickerViewDataSource {
@@ -52,12 +50,12 @@ extension addRepsViewController:UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataReps[row]
+        return "\(dataReps[row])x"
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = view as? UILabel ?? UILabel()
-        pickerLabel.text = String(dataReps[row])
+        pickerLabel.text = "\(dataReps[row])x"
         pickerLabel.font = UIFont(name: "Helvetica", size: 30)
         pickerLabel.textColor = .systemBlue
         pickerLabel.textAlignment = .center
@@ -71,7 +69,6 @@ extension addRepsViewController:UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension addRepsViewController: UISheetPresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print(selectedReps)
        delegate?.didAddReps(selectedRepsValue: selectedReps)
     }
 }

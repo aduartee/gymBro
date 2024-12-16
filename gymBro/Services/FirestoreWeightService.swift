@@ -17,8 +17,25 @@ class FirestoreWeightService: WeightDatabaseServiceProtocol {
         completion(.success(documentReference))
     }
     
+    public func fetchWeightDocument(weightCollection: CollectionReference, completion: @escaping  (Result<[QueryDocumentSnapshot], NSError>) -> Void ) {
+        weightCollection.getDocuments() { querySnapshot, error in
+            if let error = error as? NSError {
+                completion(.failure(error))
+            }
+            
+            switch FirestoreDocumentUtil.isDocumentExistDocuments(querySnapshot) {
+            case .failure(let error):
+                completion(.failure(error))
+            
+            
+            case .success(let document):
+                completion(.success(document))
+            }
+        }
+    }
+    
     public func fetchWeigthCollection(userId: String, categoryId: String, exerciseId: String) -> CollectionReference {
-        return db.collection("users").document(userId).collection("categoryExercices").document(categoryId).collection("exercises").document(exerciseId).collection("weightTracker")
+        return db.collection("users").document(userId).collection("categoryExercices").document(categoryId).collection("exercices").document(exerciseId).collection("weightTracker")
     }
     
     

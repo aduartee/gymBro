@@ -31,6 +31,8 @@
 		2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */; };
 		2649D7EE2CDBC6B20094988E /* RegisterWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */; };
 		266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266324D42C4FF68B006B5096 /* HomeViewModel.swift */; };
+		2678207C2CF3F8DA00847B4A /* addDifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */; };
+		2678207E2CF4119300847B4A /* Difficult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2678207D2CF4118A00847B4A /* Difficult.swift */; };
 		268E86D62CF1817600B86D28 /* addRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E86D52CF1817600B86D28 /* addRepsViewController.swift */; };
 		269571732C5438040054021B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571722C5438040054021B /* HomeService.swift */; };
 		269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571742C543B660054021B /* CategoryExerciseRequest.swift */; };
@@ -115,6 +117,8 @@
 		2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsRequest.swift; sourceTree = "<group>"; };
 		2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeightViewController.swift; sourceTree = "<group>"; };
 		266324D42C4FF68B006B5096 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDifficultViewController.swift; sourceTree = "<group>"; };
+		2678207D2CF4118A00847B4A /* Difficult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficult.swift; sourceTree = "<group>"; };
 		268E86D52CF1817600B86D28 /* addRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRepsViewController.swift; sourceTree = "<group>"; };
 		269571722C5438040054021B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		269571742C543B660054021B /* CategoryExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExerciseRequest.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */,
 				26ACD86D2CEF7C4500612C0C /* addNewWeightModalViewController.swift */,
 				268E86D52CF1817600B86D28 /* addRepsViewController.swift */,
+				2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 		26BA17A22C41D4D900E682E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2678207D2CF4118A00847B4A /* Difficult.swift */,
 				2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */,
 				26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */,
 				26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */,
@@ -473,6 +479,7 @@
 				260BA2212CD82CAD0020EE22 /* WeightsViewModel.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
+				2678207E2CF4119300847B4A /* Difficult.swift in Sources */,
 				26A634A02C55C66B004D3937 /* ExerciseRequest.swift in Sources */,
 				26241E682CE64B1E00840779 /* RegisterWeigthViewModel.swift in Sources */,
 				268E86D62CF1817600B86D28 /* addRepsViewController.swift in Sources */,
@@ -503,6 +510,7 @@
 				26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */,
 				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
 				2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */,
+				2678207C2CF3F8DA00847B4A /* addDifficultViewController.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
 				26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */,
 				26D5426E2CE199E90039D8E1 /* WeightService.swift in Sources */,

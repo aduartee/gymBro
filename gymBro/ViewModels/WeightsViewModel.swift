@@ -17,7 +17,7 @@ class WeightsViewModel: WeightsViewModelProtocol {
         self.weightService = weightService
     }
     
-    func getExerciseData(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
+    func getExerciseDataById(idCategory: String, exerciseId: String, completion: @escaping (ExerciseRequest?, Error?) -> Void) {
         exerciseService.fetchExerciseById(idCategory: idCategory, exerciseId: exerciseId) { data, error in
             if let error = error {
                 completion(nil, error)
@@ -25,6 +25,16 @@ class WeightsViewModel: WeightsViewModelProtocol {
             }
             
             completion(data, nil)
+        }
+    }
+    
+    func getWeightData(idCategory: String, exerciseId: String, completion: @escaping ([WeightsRequest?], Error?) -> Void) {
+        weightService.fetchWeightData(categoryId: idCategory, exerciseId: exerciseId) { weightData, error in
+            if let error = error {
+                completion([nil], error)
+            }
+            
+            completion(weightData, nil)
         }
     }
 }

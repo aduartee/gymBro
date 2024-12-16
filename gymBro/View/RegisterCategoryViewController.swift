@@ -128,7 +128,7 @@ class RegisterCategoryViewController: UIViewController {
             guard let categoryId = idCategory else {
                 return
             }
-            
+
             listWeigthVC.exerciseId = exerciseId
             listWeigthVC.categoryId = categoryId
             listWeigthVC.numberOfRepsExercise = series

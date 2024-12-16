@@ -5,7 +5,7 @@ struct WeightsRequest {
     var weightId: String
     var weight: Int
     var repetitions: Int
-    var sets: String
-    var difficult: String
-    var registerAt: Date?
+    var sets: Int
+    var difficult: Difficult
+    var registerAt: Date
 }

@@ -12,7 +12,6 @@ class WeigthViewCellXib: UITableViewCell {
     @IBOutlet weak var numberOfSeriesLabel: UILabel!
     @IBOutlet weak var weightNumberLabel: UILabel!
     @IBOutlet weak var repsNumberLabel: UILabel!
-
     @IBOutlet weak var difficultEmojiLabel: UILabel!
     @IBOutlet weak var backgroudView: UIView!
     
@@ -25,6 +24,15 @@ class WeigthViewCellXib: UITableViewCell {
         weightNumberLabel.text = weight
         repsNumberLabel.text = reps
         difficultEmojiLabel.text = difficult
+    }
+    
+    func changeNumberOfSeriesTitle(numberOfSeries: Int) -> Void {
+        UILabel.transition(with: numberOfSeriesLabel, duration: 0.2, options: .curveEaseIn) { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.numberOfSeriesLabel.text = "\(numberOfSeries)x"
+            }
+        }
     }
     
     func configureBackgroundView() {
