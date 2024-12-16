@@ -24,6 +24,7 @@ class RegisterCategoryViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageView: UIView!
+    var idExercise:String = ""
     private let exerciseViewModel = ExerciseViewModel()
     var data:[ExerciseRequest] = []
     let seriesArray: [String] = ["2x", "3x", "4x"]
@@ -90,10 +91,6 @@ class RegisterCategoryViewController: UIViewController {
                 self.data.append(contentsOf: exercise)
                 self.tableView.reloadData()
             }
-            
-//            for i in 0..<data.count {
-//                print("\(i): \(data[i])")
-//            }
         }
     }
     
@@ -123,6 +120,19 @@ class RegisterCategoryViewController: UIViewController {
             registerExerciseVC.delegate = self
             registerExerciseVC.idCategory = idCategory
             present(registerExerciseVC, animated: true)
+        }
+    }
+    
+    func goToWeightView(exerciseId: String, series: String) {
+        if let listWeigthVC = storyboard?.instantiateViewController(withIdentifier: "weightListVc") as? WeightsViewController {
+            guard let categoryId = idCategory else {
+                return
+            }
+
+            listWeigthVC.exerciseId = exerciseId
+            listWeigthVC.categoryId = categoryId
+            listWeigthVC.numberOfRepsExercise = series
+            navigationController?.pushViewController(listWeigthVC, animated: true)
         }
     }
     
@@ -173,7 +183,7 @@ class RegisterCategoryViewController: UIViewController {
     
     
     private func removeRow(indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Remove") {  [weak self] (_, _, _) in
+        let action = UIContextualAction(style: .normal, title: "Remove") { [weak self] (_, _, _) in
             guard let self = self else { return }
             let selectedRowId = data[indexPath.row].id
             goToEditView(selectedRowexerciseId: selectedRowId)
@@ -202,6 +212,11 @@ extension RegisterCategoryViewController: UITableViewDataSource, UITableViewDele
         let order = String(indexPath.row + 1)
         cell.configureCell(name: exerciseName, series: series, orderNumber: order)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellData = data[indexPath.row]
+        goToWeightView(exerciseId: cellData.id, series: cellData.series)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

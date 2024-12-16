@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260BA2212CD82CAD0020EE22 /* WeightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260BA2202CD82CA70020EE22 /* WeightsViewModel.swift */; };
 		260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */; };
 		260F19F72CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */; };
 		260F19F82CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */; };
 		2615889C2C8F6C7A00D05171 /* ExerciseViewRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */; };
 		261588A02C8F762300D05171 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */; };
 		2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616AB692C435C4D006D4D99 /* SignUpViewController.swift */; };
+		261BC9052CECF0AC001E799A /* WeigthViewCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */; };
+		261BC9062CECF0AC001E799A /* WeigthViewCellXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BC9032CECF0AC001E799A /* WeigthViewCellXib.swift */; };
 		261F13642C80F7D40075A401 /* UIViewController+CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */; };
+		26241E682CE64B1E00840779 /* RegisterWeigthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26241E672CE64B1000840779 /* RegisterWeigthViewModel.swift */; };
 		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
 		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
 		263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */; };
@@ -23,10 +27,18 @@
 		263DDEC22CB827E3008B5916 /* FirestoreExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */; };
 		2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264608692C87540C0085E1AA /* EditExerciseViewController.swift */; };
 		2646086C2C875FA40085E1AA /* EditExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */; };
+		2649D7EA2CDBBBFB0094988E /* WeightsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */; };
+		2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */; };
+		2649D7EE2CDBC6B20094988E /* RegisterWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */; };
 		266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266324D42C4FF68B006B5096 /* HomeViewModel.swift */; };
+		2678207C2CF3F8DA00847B4A /* addDifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */; };
+		2678207E2CF4119300847B4A /* Difficult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2678207D2CF4118A00847B4A /* Difficult.swift */; };
+		268E86D62CF1817600B86D28 /* addRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E86D52CF1817600B86D28 /* addRepsViewController.swift */; };
 		269571732C5438040054021B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571722C5438040054021B /* HomeService.swift */; };
 		269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269571742C543B660054021B /* CategoryExerciseRequest.swift */; };
+		2695FBF62CE5133C00FB3FF8 /* WeightsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695FBF52CE5133800FB3FF8 /* WeightsServiceProtocol.swift */; };
 		26A634A02C55C66B004D3937 /* ExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A6349F2C55C66B004D3937 /* ExerciseRequest.swift */; };
+		26ACD86E2CEF7C4500612C0C /* addNewWeightModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ACD86D2CEF7C4500612C0C /* addNewWeightModalViewController.swift */; };
 		26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */; };
 		26B0C6FF2C7F767B005C1FA9 /* RegisterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */; };
 		26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */; };
@@ -42,6 +54,9 @@
 		26BA17972C41D48000E682E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17962C41D48000E682E5 /* Assets.xcassets */; };
 		26BA179A2C41D48000E682E5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 26BA17992C41D48000E682E5 /* Base */; };
 		26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */; };
+		26D5426E2CE199E90039D8E1 /* WeightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5426D2CE199C90039D8E1 /* WeightService.swift */; };
+		26D542702CE19A770039D8E1 /* FirestoreWeightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */; };
+		26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */; };
 		26D6FBBD2C704780007F781B /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA52C704780007F781B /* Montserrat-Black.ttf */; };
 		26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */; };
 		26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */; };
@@ -70,6 +85,7 @@
 		26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0B01A2C44B55300C29539 /* AuthService.swift */; };
 		26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */; };
 		26E0B9EE2C594056002C29B2 /* RegisterCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0B9ED2C594056002C29B2 /* RegisterCategoryViewController.swift */; };
+		26E4221B2CD597BA001B772D /* WeightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E4221A2CD597BA001B772D /* WeightsViewController.swift */; };
 		26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E69AE02C4955E300F52FBB /* SignInUserRequest.swift */; };
 		26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E69AE22C4976AC00F52FBB /* HomeViewController.swift */; };
 		26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F0CC542C5BE1490006EDF3 /* EditCategoryViewController.swift */; };
@@ -77,13 +93,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260BA2202CD82CA70020EE22 /* WeightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewModel.swift; sourceTree = "<group>"; };
 		260E60EA2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciceCategoryViewModel.swift; sourceTree = "<group>"; };
 		260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		2615889B2C8F6C7900D05171 /* ExerciseViewRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseViewRow.xib; sourceTree = "<group>"; };
 		2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		2616AB692C435C4D006D4D99 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		261BC9032CECF0AC001E799A /* WeigthViewCellXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewCellXib.swift; sourceTree = "<group>"; };
+		261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeigthViewCellXib.xib; sourceTree = "<group>"; };
 		261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomTextFields.swift"; sourceTree = "<group>"; };
+		26241E672CE64B1000840779 /* RegisterWeigthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeigthViewModel.swift; sourceTree = "<group>"; };
 		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
 		263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserServiceProtocol.swift; sourceTree = "<group>"; };
@@ -93,10 +113,18 @@
 		263DDEC12CB827D6008B5916 /* FirestoreExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExerciseService.swift; sourceTree = "<group>"; };
 		264608692C87540C0085E1AA /* EditExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewController.swift; sourceTree = "<group>"; };
 		2646086B2C875FA40085E1AA /* EditExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseViewModel.swift; sourceTree = "<group>"; };
+		2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewModelProtocol.swift; sourceTree = "<group>"; };
+		2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsRequest.swift; sourceTree = "<group>"; };
+		2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeightViewController.swift; sourceTree = "<group>"; };
 		266324D42C4FF68B006B5096 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDifficultViewController.swift; sourceTree = "<group>"; };
+		2678207D2CF4118A00847B4A /* Difficult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficult.swift; sourceTree = "<group>"; };
+		268E86D52CF1817600B86D28 /* addRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRepsViewController.swift; sourceTree = "<group>"; };
 		269571722C5438040054021B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		269571742C543B660054021B /* CategoryExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExerciseRequest.swift; sourceTree = "<group>"; };
+		2695FBF52CE5133800FB3FF8 /* WeightsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsServiceProtocol.swift; sourceTree = "<group>"; };
 		26A6349F2C55C66B004D3937 /* ExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRequest.swift; sourceTree = "<group>"; };
+		26ACD86D2CEF7C4500612C0C /* addNewWeightModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewWeightModalViewController.swift; sourceTree = "<group>"; };
 		26AF93C02C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewModel.swift; sourceTree = "<group>"; };
 		26B0C6FE2C7F767B005C1FA9 /* RegisterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterExerciseViewController.swift; sourceTree = "<group>"; };
 		26B1F64E2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTypeCategoryViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +142,9 @@
 		26BA17992C41D48000E682E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26BA179B2C41D48000E682E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CCB3192C7BF99C002FEA4D /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
+		26D5426D2CE199C90039D8E1 /* WeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightService.swift; sourceTree = "<group>"; };
+		26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreWeightService.swift; sourceTree = "<group>"; };
+		26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDatabaseServiceProtocol.swift; sourceTree = "<group>"; };
 		26D6FBA52C704780007F781B /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		26D6FBA62C704780007F781B /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		26D6FBA72C704780007F781B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -138,6 +169,7 @@
 		26E0B01A2C44B55300C29539 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		26E0B9ED2C594056002C29B2 /* RegisterCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryViewController.swift; sourceTree = "<group>"; };
+		26E4221A2CD597BA001B772D /* WeightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewController.swift; sourceTree = "<group>"; };
 		26E69AE02C4955E300F52FBB /* SignInUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserRequest.swift; sourceTree = "<group>"; };
 		26E69AE22C4976AC00F52FBB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		26F0CC542C5BE1490006EDF3 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +253,13 @@
 				2615889F2C8F762300D05171 /* ExerciseTableViewCell.swift */,
 				260F19F52CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.swift */,
 				260F19F62CC5C6AD0081C443 /* ExerciseCategoryTableViewCell.xib */,
+				26E4221A2CD597BA001B772D /* WeightsViewController.swift */,
+				2649D7ED2CDBC6B20094988E /* RegisterWeightViewController.swift */,
+				261BC9032CECF0AC001E799A /* WeigthViewCellXib.swift */,
+				261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */,
+				26ACD86D2CEF7C4500612C0C /* addNewWeightModalViewController.swift */,
+				268E86D52CF1817600B86D28 /* addRepsViewController.swift */,
+				2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +267,8 @@
 		26BA17A22C41D4D900E682E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2678207D2CF4118A00847B4A /* Difficult.swift */,
+				2649D7EB2CDBC39E0094988E /* WeightsRequest.swift */,
 				26D8023B2CBD666200907CC2 /* ExerciseErrorEnum.swift */,
 				26E0B01C2C44B61700C29539 /* RegisterUserRequest.swift */,
 				26E69AE02C4955E300F52FBB /* SignInUserRequest.swift */,
@@ -279,6 +320,8 @@
 		26E0B0082C449DD400C29539 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				26241E672CE64B1000840779 /* RegisterWeigthViewModel.swift */,
+				260BA2202CD82CA70020EE22 /* WeightsViewModel.swift */,
 				26E0B00A2C449E9000C29539 /* SignInViewModel.swift */,
 				263440622C4B434E00F9726B /* RegisterUserViewModel.swift */,
 				266324D42C4FF68B006B5096 /* HomeViewModel.swift */,
@@ -294,6 +337,11 @@
 		26E0B0092C449DDF00C29539 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2695FBF52CE5133800FB3FF8 /* WeightsServiceProtocol.swift */,
+				26D542712CE19AE40039D8E1 /* WeightDatabaseServiceProtocol.swift */,
+				26D5426F2CE19A6A0039D8E1 /* FirestoreWeightService.swift */,
+				26D5426D2CE199C90039D8E1 /* WeightService.swift */,
+				2649D7E92CDBBBEB0094988E /* WeightsViewModelProtocol.swift */,
 				26D8023D2CBD70C000907CC2 /* ExerciseService.swift */,
 				26B41E622CB97BEE00599D20 /* ExerciseServiceProtocol.swift */,
 				26B41E5F2CB97B0300599D20 /* ExerciseCatergoryServiceProtocol.swift */,
@@ -390,6 +438,7 @@
 				26D6FBC12C704780007F781B /* Montserrat-ExtraBold.ttf in Resources */,
 				26D6FBC62C704780007F781B /* Montserrat-Light.ttf in Resources */,
 				26D6FBC52C704780007F781B /* Montserrat-Italic.ttf in Resources */,
+				261BC9052CECF0AC001E799A /* WeigthViewCellXib.xib in Resources */,
 				26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */,
 				26D6FBC32C704780007F781B /* Montserrat-ExtraLight.ttf in Resources */,
 				2615889C2C8F6C7A00D05171 /* ExerciseViewRow.xib in Resources */,
@@ -426,10 +475,16 @@
 				26BA178E2C41D47F00E682E5 /* AppDelegate.swift in Sources */,
 				26B41E5E2CB9767E00599D20 /* ExerciseCategoryService.swift in Sources */,
 				26AF93C12C63BEC200C13F6D /* RegisterTypeCategoryViewModel.swift in Sources */,
+				261BC9062CECF0AC001E799A /* WeigthViewCellXib.swift in Sources */,
+				260BA2212CD82CAD0020EE22 /* WeightsViewModel.swift in Sources */,
 				2616AB6A2C435C4D006D4D99 /* SignUpViewController.swift in Sources */,
 				26E0B01B2C44B55300C29539 /* AuthService.swift in Sources */,
+				2678207E2CF4119300847B4A /* Difficult.swift in Sources */,
 				26A634A02C55C66B004D3937 /* ExerciseRequest.swift in Sources */,
+				26241E682CE64B1E00840779 /* RegisterWeigthViewModel.swift in Sources */,
+				268E86D62CF1817600B86D28 /* addRepsViewController.swift in Sources */,
 				26BA17902C41D47F00E682E5 /* SceneDelegate.swift in Sources */,
+				26E4221B2CD597BA001B772D /* WeightsViewController.swift in Sources */,
 				261F13642C80F7D40075A401 /* UIViewController+CustomTextFields.swift in Sources */,
 				263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */,
 				266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */,
@@ -437,8 +492,10 @@
 				269571732C5438040054021B /* HomeService.swift in Sources */,
 				26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */,
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
+				26ACD86E2CEF7C4500612C0C /* addNewWeightModalViewController.swift in Sources */,
 				26E0B00B2C449E9000C29539 /* SignInViewModel.swift in Sources */,
 				26B0C6FF2C7F767B005C1FA9 /* RegisterExerciseViewController.swift in Sources */,
+				26D542702CE19A770039D8E1 /* FirestoreWeightService.swift in Sources */,
 				261588A02C8F762300D05171 /* ExerciseTableViewCell.swift in Sources */,
 				260E60EB2C6853B200C19DDE /* EditExerciceCategoryViewModel.swift in Sources */,
 				269571752C543B660054021B /* CategoryExerciseRequest.swift in Sources */,
@@ -450,14 +507,21 @@
 				26B54E7A2CB58BBD0012476C /* ErrorUtils.swift in Sources */,
 				2646086A2C87540C0085E1AA /* EditExerciseViewController.swift in Sources */,
 				26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */,
+				26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */,
 				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
+				2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */,
+				2678207C2CF3F8DA00847B4A /* addDifficultViewController.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,
 				26B54E782CB588020012476C /* FirebaseUserService.swift in Sources */,
+				26D5426E2CE199E90039D8E1 /* WeightService.swift in Sources */,
 				26DEDF572CB81126006632B0 /* ExerciseCategoryDatabaseProtocol.swift in Sources */,
+				2649D7EE2CDBC6B20094988E /* RegisterWeightViewController.swift in Sources */,
 				26B1F64F2C6038B10099BF4D /* RegisterTypeCategoryViewController.swift in Sources */,
+				2695FBF62CE5133C00FB3FF8 /* WeightsServiceProtocol.swift in Sources */,
 				26F0CC552C5BE14A0006EDF3 /* EditCategoryViewController.swift in Sources */,
 				26B41E632CB97BF600599D20 /* ExerciseServiceProtocol.swift in Sources */,
 				26D8023E2CBD70C600907CC2 /* ExerciseService.swift in Sources */,
+				2649D7EA2CDBBBFB0094988E /* WeightsViewModelProtocol.swift in Sources */,
 				26E69AE12C4955E300F52FBB /* SignInUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,8 +681,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,8 +714,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

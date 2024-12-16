@@ -83,8 +83,6 @@ class ExerciseService: ExerciseServiceProtocol {
             return
         }
         
-        
-        
         self.databaseService.fetchExerciseDocumentById(idCategory: idCategory, exerciseId: exerciseId, userId: userId) { exerciseDocument in
             switch exerciseDocument {
             case .failure(let error):
