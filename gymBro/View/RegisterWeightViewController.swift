@@ -49,7 +49,6 @@ class RegisterWeightViewController: UIViewController {
         configureTableView()
         registerTrackerXIBCell()
         styleBackgroundRowViews()
-        self.navigationItem.title = "Teste"
     }
     
     private func styleBackgroundRowViews() {
