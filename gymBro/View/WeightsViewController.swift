@@ -26,6 +26,8 @@ class WeightsViewController: UIViewController {
         loadWeightData(idCategory: categoryId, exerciseId: exerciseId)
         styleAddWeigthButton()
         implementTableView()
+        tableView.estimatedRowHeight = 200
+        registerWeightXIBCell()
         showExerciseInfo()
     }
     
@@ -41,6 +43,10 @@ class WeightsViewController: UIViewController {
         if weightViewModel == nil {
             weightViewModel = WeightsViewModel()
         }
+    }
+    
+    func registerWeightXIBCell() {
+        self.tableView.register(UINib(nibName:"WeightTableViewCell", bundle: nil), forCellReuseIdentifier: "weightInfoCellXib")
     }
     
     private func showExerciseInfo() -> Void {
@@ -65,8 +71,8 @@ class WeightsViewController: UIViewController {
             self.exerciseTopSectionLabel.text = exerciseData.name
             self.seriesTopSectionLabel.text = "Series: \(exerciseData.series)"
         }
-
     }
+    
     
     func loadWeightData(idCategory: String, exerciseId: String) {
         weightViewModel.getWeightData(idCategory: idCategory, exerciseId: exerciseId) {[weak self] weight, error in
@@ -128,12 +134,20 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
         return weightData.count
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell") ?? UITableViewCell(style: .default, reuseIdentifier: "defaultCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "weightInfoCellXib", for: indexPath) as? WeightTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        
         let weight = weightData[indexPath.row].weight
         let reps = weightData[indexPath.row].repetitions
         let difficult = weightData[indexPath.row].difficult.label
-        cell.textLabel!.text = "Weight used: \(weight)kg - Difficult \(difficult)"
+        cell.changeInfoWeight(weight: weight, reps: reps, difficult: difficult)
         return cell
     }
 }

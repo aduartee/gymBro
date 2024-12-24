@@ -21,6 +21,8 @@
 		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
 		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
 		263669132CB6C88400D9E64C /* CurrentUserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */; };
+		263977A52D0FAF8800FE7CDD /* WeightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263977A42D0FAF8800FE7CDD /* WeightTableViewCell.xib */; };
+		263977A62D0FAF8800FE7CDD /* WeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263977A32D0FAF8800FE7CDD /* WeightTableViewCell.swift */; };
 		263AB5D72C82BCE0008B7716 /* RegisterExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263AB5D62C82BCE0008B7716 /* RegisterExerciseViewModel.swift */; };
 		263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */; };
 		263DDEC02CB82681008B5916 /* ExerciseDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DDEBF2CB82677008B5916 /* ExerciseDatabaseProtocol.swift */; };
@@ -107,6 +109,8 @@
 		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
 		263669122CB6C87C00D9E64C /* CurrentUserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserServiceProtocol.swift; sourceTree = "<group>"; };
+		263977A32D0FAF8800FE7CDD /* WeightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTableViewCell.swift; sourceTree = "<group>"; };
+		263977A42D0FAF8800FE7CDD /* WeightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeightTableViewCell.xib; sourceTree = "<group>"; };
 		263AB5D62C82BCE0008B7716 /* RegisterExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterExerciseViewModel.swift; sourceTree = "<group>"; };
 		263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDocumentUtil.swift; sourceTree = "<group>"; };
 		263DDEBF2CB82677008B5916 /* ExerciseDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDatabaseProtocol.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				26ACD86D2CEF7C4500612C0C /* addNewWeightModalViewController.swift */,
 				268E86D52CF1817600B86D28 /* addRepsViewController.swift */,
 				2678207B2CF3F8DA00847B4A /* addDifficultViewController.swift */,
+				263977A32D0FAF8800FE7CDD /* WeightTableViewCell.swift */,
+				263977A42D0FAF8800FE7CDD /* WeightTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				26D6FBBF2C704780007F781B /* Montserrat-Bold.ttf in Resources */,
 				26D6FBC12C704780007F781B /* Montserrat-ExtraBold.ttf in Resources */,
 				26D6FBC62C704780007F781B /* Montserrat-Light.ttf in Resources */,
+				263977A52D0FAF8800FE7CDD /* WeightTableViewCell.xib in Resources */,
 				26D6FBC52C704780007F781B /* Montserrat-Italic.ttf in Resources */,
 				261BC9052CECF0AC001E799A /* WeigthViewCellXib.xib in Resources */,
 				26D6FBBE2C704780007F781B /* Montserrat-BlackItalic.ttf in Resources */,
@@ -490,6 +497,7 @@
 				266324D52C4FF68B006B5096 /* HomeViewModel.swift in Sources */,
 				26B41E602CB97B1100599D20 /* ExerciseCatergoryServiceProtocol.swift in Sources */,
 				269571732C5438040054021B /* HomeService.swift in Sources */,
+				263977A62D0FAF8800FE7CDD /* WeightTableViewCell.swift in Sources */,
 				26CCB31A2C7BF99C002FEA4D /* ExerciseViewModel.swift in Sources */,
 				26E69AE32C4976AC00F52FBB /* HomeViewController.swift in Sources */,
 				26ACD86E2CEF7C4500612C0C /* addNewWeightModalViewController.swift in Sources */,

@@ -81,7 +81,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign In">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                            <color key="baseBackgroundColor" red="0.0" green="0.74901960784313726" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.1092487776" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signInTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ENj-SH-2Wa"/>
@@ -214,7 +214,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign Up">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                            <color key="baseBackgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.0078093998020000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="singUpButton:" destination="GYC-ur-8Xo" eventType="touchUpInside" id="MDd-bt-weU"/>
@@ -888,7 +888,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KF-Tk-slg">
-                                        <rect key="frame" x="10.000000000000004" y="70" width="61.333333333333343" height="43.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="70" width="61.333333333333336" height="43.666666666666657"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
                                             <imageReference key="image" image="arrow.backward.circle.fill" catalog="system" variableValue="0.0"/>
@@ -914,7 +914,7 @@
                                     <constraint firstItem="UvQ-oq-Iwp" firstAttribute="top" secondItem="1Hn-fg-2yB" secondAttribute="bottom" constant="5" id="FIo-E4-EsA"/>
                                     <constraint firstItem="HJP-j1-TKI" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="120" id="NO3-1d-s2d"/>
                                     <constraint firstAttribute="height" constant="275" id="OA3-Oq-b5j"/>
-                                    <constraint firstItem="9KF-Tk-slg" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" constant="10" id="RSg-gg-VT7"/>
+                                    <constraint firstItem="9KF-Tk-slg" firstAttribute="leading" secondItem="fb7-ng-ROf" secondAttribute="leading" id="RSg-gg-VT7"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HJP-j1-TKI" secondAttribute="trailing" constant="20" symbolic="YES" id="XiH-6i-dOI"/>
                                     <constraint firstItem="9KF-Tk-slg" firstAttribute="top" secondItem="fb7-ng-ROf" secondAttribute="top" constant="70" id="c0e-1H-me8"/>
                                     <constraint firstAttribute="trailing" secondItem="1Hn-fg-2yB" secondAttribute="trailing" constant="10" id="fWT-s6-eJN"/>
@@ -926,21 +926,33 @@
                                     <constraint firstItem="HJP-j1-TKI" firstAttribute="top" secondItem="UvQ-oq-Iwp" secondAttribute="bottom" constant="10" id="ynx-K5-nF9"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xo7-8C-1oQ">
-                                <rect key="frame" x="0.0" y="295" width="393" height="557"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flR-ki-ihJ">
+                                <rect key="frame" x="5" y="275" width="383" height="543"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xo7-8C-1oQ">
+                                        <rect key="frame" x="0.0" y="5" width="383" height="538"/>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="xo7-8C-1oQ" firstAttribute="leading" secondItem="flR-ki-ihJ" secondAttribute="leading" id="2cM-Kz-dEQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xo7-8C-1oQ" secondAttribute="bottom" id="cM7-sZ-ahk"/>
+                                    <constraint firstAttribute="trailing" secondItem="xo7-8C-1oQ" secondAttribute="trailing" id="oNd-Rw-dFh"/>
+                                    <constraint firstItem="xo7-8C-1oQ" firstAttribute="top" secondItem="flR-ki-ihJ" secondAttribute="top" constant="5" id="yop-ND-l6Z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k03-Y5-b4d"/>
                         <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="xo7-8C-1oQ" secondAttribute="bottom" id="CR2-S3-ycO"/>
                             <constraint firstItem="fb7-ng-ROf" firstAttribute="trailing" secondItem="k03-Y5-b4d" secondAttribute="trailing" id="F57-f6-u9p"/>
+                            <constraint firstItem="flR-ki-ihJ" firstAttribute="top" secondItem="fb7-ng-ROf" secondAttribute="bottom" id="H5N-QZ-sed"/>
                             <constraint firstItem="fb7-ng-ROf" firstAttribute="top" secondItem="yx9-ag-8po" secondAttribute="top" id="Zkm-zT-Ijw"/>
-                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="top" secondItem="fb7-ng-ROf" secondAttribute="bottom" constant="20" id="c78-Ki-E0L"/>
-                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="trailing" secondItem="k03-Y5-b4d" secondAttribute="trailing" id="cm5-qV-Krv"/>
+                            <constraint firstItem="k03-Y5-b4d" firstAttribute="bottom" secondItem="flR-ki-ihJ" secondAttribute="bottom" id="cos-Ji-Oms"/>
+                            <constraint firstItem="k03-Y5-b4d" firstAttribute="trailing" secondItem="flR-ki-ihJ" secondAttribute="trailing" constant="5" id="htI-Yd-fUJ"/>
                             <constraint firstItem="fb7-ng-ROf" firstAttribute="leading" secondItem="k03-Y5-b4d" secondAttribute="leading" id="rPj-oD-zPe"/>
-                            <constraint firstItem="xo7-8C-1oQ" firstAttribute="leading" secondItem="k03-Y5-b4d" secondAttribute="leading" id="xRv-ti-xwA"/>
+                            <constraint firstItem="flR-ki-ihJ" firstAttribute="leading" secondItem="k03-Y5-b4d" secondAttribute="leading" constant="5" id="uki-gr-Xuz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1532,14 +1544,11 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
