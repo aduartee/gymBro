@@ -17,6 +17,7 @@
 		261BC9052CECF0AC001E799A /* WeigthViewCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */; };
 		261BC9062CECF0AC001E799A /* WeigthViewCellXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BC9032CECF0AC001E799A /* WeigthViewCellXib.swift */; };
 		261F13642C80F7D40075A401 /* UIViewController+CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */; };
+		2622F75C2D1CE478003C5B4C /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2622F75B2D1CE46A003C5B4C /* Date+Formatting.swift */; };
 		26241E682CE64B1E00840779 /* RegisterWeigthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26241E672CE64B1000840779 /* RegisterWeigthViewModel.swift */; };
 		263440632C4B434E00F9726B /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440622C4B434E00F9726B /* RegisterUserViewModel.swift */; };
 		263440672C4B4B7600F9726B /* UIViewController+CustomAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */; };
@@ -105,6 +106,7 @@
 		261BC9032CECF0AC001E799A /* WeigthViewCellXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewCellXib.swift; sourceTree = "<group>"; };
 		261BC9042CECF0AC001E799A /* WeigthViewCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeigthViewCellXib.xib; sourceTree = "<group>"; };
 		261F13632C80F7D40075A401 /* UIViewController+CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomTextFields.swift"; sourceTree = "<group>"; };
+		2622F75B2D1CE46A003C5B4C /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		26241E672CE64B1000840779 /* RegisterWeigthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWeigthViewModel.swift; sourceTree = "<group>"; };
 		263440622C4B434E00F9726B /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomAlerts.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		263440642C4B4B3600F9726B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2622F75B2D1CE46A003C5B4C /* Date+Formatting.swift */,
 				263DDEBD2CB81712008B5916 /* FirestoreDocumentUtil.swift */,
 				26B54E792CB58BB50012476C /* ErrorUtils.swift */,
 				263440662C4B4B7600F9726B /* UIViewController+CustomAlerts.swift */,
@@ -517,6 +520,7 @@
 				26DEDF592CB811C5006632B0 /* FirestoreExerciseCategoryService.swift in Sources */,
 				26D542722CE19AE70039D8E1 /* WeightDatabaseServiceProtocol.swift in Sources */,
 				263DDEBE2CB8171C008B5916 /* FirestoreDocumentUtil.swift in Sources */,
+				2622F75C2D1CE478003C5B4C /* Date+Formatting.swift in Sources */,
 				2649D7EC2CDBC3AE0094988E /* WeightsRequest.swift in Sources */,
 				2678207C2CF3F8DA00847B4A /* addDifficultViewController.swift in Sources */,
 				26E0B01D2C44B61700C29539 /* RegisterUserRequest.swift in Sources */,

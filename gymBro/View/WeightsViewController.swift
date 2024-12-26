@@ -147,7 +147,12 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
         let weight = weightData[indexPath.row].weight
         let reps = weightData[indexPath.row].repetitions
         let difficult = weightData[indexPath.row].difficult.label
-        cell.changeInfoWeight(weight: weight, reps: reps, difficult: difficult)
+        let difficultColor = weightData[indexPath.row].difficult.color
+        let serie = String(indexPath.row + 1)
+        let registerAt =  weightData[indexPath.row].registerAt
+        let dayAbbreviation = registerAt.toWeekdayAbbreviation(with: registerAt)
+        cell.changeInfoWeight(weight: weight, reps: reps, serie: serie, day: dayAbbreviation)
+        cell.styleDifficult(difficult: difficult, difficultColor: difficultColor)
         return cell
     }
 }
