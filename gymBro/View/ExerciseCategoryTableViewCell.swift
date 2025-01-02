@@ -12,8 +12,10 @@ class ExerciseCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var tryView: UIView!
     @IBOutlet weak var weekDayLabel: UILabel!
     @IBOutlet weak var exerciseNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         tryView.layer.cornerRadius = 25.0
         tryView.layer.masksToBounds = true
     }
@@ -27,5 +29,4 @@ class ExerciseCategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
      
     }
-    
 }

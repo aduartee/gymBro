@@ -229,7 +229,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCategoryCell", for: indexPath) as? ExerciseCategoryTableViewCell else {
             return UITableViewCell()
         }
-            
+        
         let exerciseCategoryRow = data[indexPath.item]
         let categoryName = exerciseCategoryRow.categoryName
         let weekDay: String? = exerciseCategoryRow.weekDay
@@ -257,14 +257,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return viewWOD
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 40
-//    }
 }
 
 extension HomeViewController: CategoryExerciseDelegate, EditCategoryExerciseDelegate {

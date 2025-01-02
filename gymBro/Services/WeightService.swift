@@ -55,8 +55,16 @@ class WeightService: WeightsServiceProtocol {
         let repetitions = data["repetitions"] as? Int ?? 1
         let sets = data["sets"] as? Int ?? 1
         let difficult = createDifficult(from: data["difficult"] as? String ?? "")
-        let registerAt = data["registerAt"] as? Date ?? Date.now
+        let registerAt: Date = createRegisterDate(data["registerAt"] as? Timestamp)
         return WeightsRequest(exerciseId: exerciseId, weightId: weightId, weight: weight, repetitions: repetitions, sets: sets, difficult: difficult, registerAt: registerAt)
+    }
+    
+    internal func createRegisterDate(_ registerAt: Timestamp?) -> Date {
+        if let registerTimestamp = registerAt {
+            return registerTimestamp.dateValue()
+        }
+    
+        return Date.now
     }
     
     internal func createDifficult(from value: String) -> Difficult {

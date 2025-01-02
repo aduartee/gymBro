@@ -54,10 +54,16 @@ class WeightTableViewCell: UITableViewCell {
         backgroundViewAllCell.layer.cornerRadius = 20.0
     }
     
-    func changeInfoWeight(weight: Int, reps: Int, difficult: String) {
+    func changeInfoWeight(weight: Int, reps: Int, serie: String, day: String) {
         weightLabel.text = "\(weight)"
         repsNumberLabel.text = "\(reps)"
+        counterWeightLabel.text = serie
+        dayLabel.text = day
+    }
+    
+    func styleDifficult(difficult: String, difficultColor: UIColor) {
         difficultLabel.text = difficult
+        difficultView.backgroundColor = difficultColor
     }
     
 }

@@ -12,6 +12,7 @@ class WeightsViewController: UIViewController {
     var categoryId: String = ""
     var numberOfRepsExercise: String = ""
     var weightData: [WeightsRequest] = []
+    var weightSection: [WeightsSection] = []
     var weightViewModel: WeightsViewModelProtocol!
     @IBOutlet weak var topSectionView: UIView!
     @IBOutlet weak var addWeigthButton: UIButton!
@@ -75,20 +76,21 @@ class WeightsViewController: UIViewController {
     
     
     func loadWeightData(idCategory: String, exerciseId: String) {
-        weightViewModel.getWeightData(idCategory: idCategory, exerciseId: exerciseId) {[weak self] weight, error in
+        weightViewModel.getWeightData(idCategory: idCategory, exerciseId: exerciseId) {[weak self] weightSection, error in
             guard let self = self else { return }
             if let error = error {
                 showCustomAlert(title: "Sorry, something is wrong :(", message: "\(error.localizedDescription)")
             }
             
-            let weightData = weight.compactMap({ $0 })
-            updateTableWeight(with: weightData)
+//            let weightData = weight.compactMap({ $0 })
+            let weightSection = weightSection.compactMap { $0 }
+            updateTableWeight(with: weightSection)
         }
     }
     
-    func updateTableWeight(with weight: [WeightsRequest]) {
+    func updateTableWeight(with weightSectionData: [WeightsSection]) {
         weightData.removeAll()
-        weightData.append(contentsOf: weight)
+        weightSection.append(contentsOf: weightSectionData)
                 
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -131,11 +133,15 @@ class WeightsViewController: UIViewController {
 
 extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weightData.count
+        return weightSection[section].weigthData.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return weightSection.count
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 100
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,12 +149,38 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        
-        let weight = weightData[indexPath.row].weight
-        let reps = weightData[indexPath.row].repetitions
-        let difficult = weightData[indexPath.row].difficult.label
-        cell.changeInfoWeight(weight: weight, reps: reps, difficult: difficult)
+        let weight = weightSection[indexPath.section].weigthData[indexPath.row].weight
+        let reps = weightSection[indexPath.section].weigthData[indexPath.row].repetitions
+        let difficult = weightSection[indexPath.section].weigthData[indexPath.row].difficult.label
+        let difficultColor = weightSection[indexPath.section].weigthData[indexPath.row].difficult.color
+        let serie = String(indexPath.row + 1)
+        let registerAt = weightSection[indexPath.section].weigthData[indexPath.row].registerAt
+        let dayAbbreviation = DateFormatterHelper.shared.toWeekdayAbbreviation(with: registerAt)
+        cell.changeInfoWeight(weight: weight, reps: reps, serie: serie, day: dayAbbreviation)
+        cell.styleDifficult(difficult: difficult, difficultColor: difficultColor)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        label.font = UIFont(name: "Montserrat-Medium", size: 24.0)
+        label.textColor = UIColor(.white)
+        label.text = weightSection[section].registeredMonth
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = weightSection[section].registeredMonth
+        label.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+        ])
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
 }
 
