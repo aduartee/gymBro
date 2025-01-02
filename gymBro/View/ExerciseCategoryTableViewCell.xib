@@ -60,7 +60,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="oJq-cK-Mvs" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="10" id="JOi-SD-iqu"/>
                 <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="oJq-cK-Mvs" secondAttribute="trailing" constant="10" id="s60-5X-gzz"/>
