@@ -163,8 +163,8 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
-        label.font = UIFont(name: "Montserrat-Medium", size: 24.0)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        label.font = UIFont(name: "Montserrat-Medium", size: 26.0)
         label.textColor = UIColor(.white)
         label.text = weightSection[section].registeredMonth
         label.translatesAutoresizingMaskIntoConstraints = false
