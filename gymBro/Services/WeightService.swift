@@ -70,11 +70,11 @@ class WeightService: WeightsServiceProtocol {
     internal func createDifficult(from value: String) -> Difficult {
         switch value.lowercased() {
         case "easy":
-            return Difficult(emoji: "🐔", label: "Easy", color: .green)
+            return Difficult(emoji: "🐔", label: "Easy", color: UIColor(red: 67/255, green: 160/255, blue: 71/255, alpha: 1.0))
         case "medium":
-            return Difficult(emoji: "🐯", label: "Medium", color: .orange)
+            return Difficult(emoji: "🐯", label: "Medium", color: UIColor(red: 255/255, green: 167/255, blue: 38/255, alpha: 1.0))
         case "hard":
-            return Difficult(emoji: "🔥", label: "Hard", color: .red)
+            return Difficult(emoji: "🔥", label: "Hard", color: UIColor(red: 229/255, green: 57/255, blue: 53/255, alpha: 1.0))
         default:
             return Difficult(emoji: "🐔", label: "Easy", color: .green)
         }

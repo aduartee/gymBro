@@ -41,8 +41,8 @@ class WeightTableViewCell: UITableViewCell {
         difficultLabel.font =  UIFont(name: "Montserrat-Bold", size: 15.0)
         counterWeightLabel.font =  UIFont(name: "Montserrat-Medium", size: 16.0)
         dayLabelView.font =  UIFont(name: "Montserrat-Bold", size: 14.0)
-        weightLabelOfView.font =  UIFont(name: "Montserrat-SemiBold", size: 13.0)
-        repsLabelOfView.font =  UIFont(name: "Montserrat-SemiBold", size: 13.0)
+        weightLabelOfView.font =  UIFont(name: "Montserrat-Bold", size: 16.0)
+        repsLabelOfView.font =  UIFont(name: "Montserrat-Bold", size: 15.0)
     }
     
     func styleRoundViews() {
