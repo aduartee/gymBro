@@ -194,7 +194,23 @@ class RegisterWeightViewController: UIViewController {
     
         print(actualRep)
         print(seriesNumber)
+        handleSeriesProgression(seriesNumber: seriesNumber)
         
+//        if actualRep <= seriesNumber {
+//            changeNumberOfSeriesLabelContent(with: actualRep)
+//            guard let data = buildWeigthData() else { return }
+//            
+//            buildWeigthRequestBySerie(data: data, serie: actualRep)
+//            trackerRegistersTable.reloadData()
+//            actualRep += 1
+//            
+//        } else {
+//            changeButtonAddTitle()
+//            showAlert()
+//        }
+    }
+    
+    func handleSeriesProgression(seriesNumber: Int) {
         if actualRep <= seriesNumber {
             changeNumberOfSeriesLabelContent(with: actualRep)
             guard let data = buildWeigthData() else { return }
