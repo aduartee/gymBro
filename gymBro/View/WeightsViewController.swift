@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol registerWeightsDelegate: AnyObject{
+    func didRegisterWeights(registeredData: [WeightsRequest], date: Date)
+}
+
 class WeightsViewController: UIViewController {
     var exerciseId: String = ""
     var categoryId: String = ""
@@ -89,7 +93,6 @@ class WeightsViewController: UIViewController {
     }
     
     func updateTableWeight(with weightSectionData: [WeightsSection]) {
-        weightData.removeAll()
         weightSection.append(contentsOf: weightSectionData)
                 
         DispatchQueue.main.async { [weak self] in
@@ -185,8 +188,11 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
 }
 
 extension WeightsViewController: registerWeightsDelegate {
-    func didRegisterWeights(registeredData: [WeightsRequest]) {
-        weightData = registeredData
-        tableView.reloadData()
+    func didRegisterWeights(registeredData: [WeightsRequest], date: Date) {
+        DispatchQueue.main.async {
+            let value = self.weightViewModel.createSectionsFromWeights(weightData: registeredData)
+            self.weightSection.append(contentsOf: value)
+            self.tableView.reloadData()
+        }
     }
 }
