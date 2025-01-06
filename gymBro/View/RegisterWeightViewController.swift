@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol registerWeightsDelegate: AnyObject{
-    func didRegisterWeights(registeredData: [WeightsRequest])
-}
-
 class RegisterWeightViewController: UIViewController {
     weak var delegate: registerWeightsDelegate?
     var numberOfSeriesOfExercise: String = ""
@@ -105,9 +101,11 @@ class RegisterWeightViewController: UIViewController {
             }
 
             let data = registerData.compactMap({ $0 })
-            print(data)
             self.delegate?.didRegisterWeights(registeredData: data)
-            self.goToBackView()
+            
+            DispatchQueue.main.async {
+                self.goToBackView()
+            }
         }
     }
     
@@ -132,7 +130,7 @@ class RegisterWeightViewController: UIViewController {
         }
     }
     
-    func changeButtonAddTitle() -> Void {
+    func changeTitleButtonAdd() -> Void {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.addButton.setTitle("Register", for: .normal)
@@ -191,38 +189,33 @@ class RegisterWeightViewController: UIViewController {
         guard let seriesNumber = convertSeriesForInt(with: numberOfSeriesOfExercise) else {
             return
         }
-    
-        print(actualRep)
-        print(seriesNumber)
+
         handleSeriesProgression(seriesNumber: seriesNumber)
-        
-//        if actualRep <= seriesNumber {
-//            changeNumberOfSeriesLabelContent(with: actualRep)
-//            guard let data = buildWeigthData() else { return }
-//            
-//            buildWeigthRequestBySerie(data: data, serie: actualRep)
-//            trackerRegistersTable.reloadData()
-//            actualRep += 1
-//            
-//        } else {
-//            changeButtonAddTitle()
-//            showAlert()
-//        }
     }
     
     func handleSeriesProgression(seriesNumber: Int) {
         if actualRep <= seriesNumber {
             changeNumberOfSeriesLabelContent(with: actualRep)
             guard let data = buildWeigthData() else { return }
-            
             buildWeigthRequestBySerie(data: data, serie: actualRep)
-            trackerRegistersTable.reloadData()
+            insertWeightRowTrackerTable()
+            
+            if actualRep == seriesNumber {
+                changeTitleButtonAdd()
+            }
+            
             actualRep += 1
             
         } else {
-            changeButtonAddTitle()
             showAlert()
         }
+    }
+    
+    func insertWeightRowTrackerTable() {
+        let numberOfRows = trackerRegistersTable.numberOfRows(inSection: 0)
+        let lastIndex = IndexPath(row: numberOfRows, section: 0)
+        
+        trackerRegistersTable.insertRows(at: [lastIndex], with: .top)
     }
     
     func goToBackView() {
@@ -264,7 +257,7 @@ class RegisterWeightViewController: UIViewController {
 
 extension RegisterWeightViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataOfEachSerie.count
+        return dataOfEachSerie.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -275,7 +268,7 @@ extension RegisterWeightViewController: UITableViewDelegate, UITableViewDataSour
         
         let keys = dataOfEachSerie.keys.sorted()
         let key = keys[indexPath.row]
-        
+      
         if let weightData = dataOfEachSerie[key] {
             let weightValue: String = String(weightData.weight)
             let repsValue: String = String(weightData.repetitions)
