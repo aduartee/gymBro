@@ -101,7 +101,7 @@ class RegisterWeightViewController: UIViewController {
             }
 
             let data = registerData.compactMap({ $0 })
-            self.delegate?.didRegisterWeights(registeredData: data)
+            self.delegate?.didRegisterWeights(registeredData: data, date: Date.now)
             
             DispatchQueue.main.async {
                 self.goToBackView()

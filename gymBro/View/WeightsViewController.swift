@@ -8,7 +8,7 @@
 import UIKit
 
 protocol registerWeightsDelegate: AnyObject{
-    func didRegisterWeights(registeredData: [WeightsRequest])
+    func didRegisterWeights(registeredData: [WeightsRequest], date: Date)
 }
 
 class WeightsViewController: UIViewController {
@@ -188,11 +188,10 @@ extension WeightsViewController:UITableViewDelegate, UITableViewDataSource {
 }
 
 extension WeightsViewController: registerWeightsDelegate {
-    func didRegisterWeights(registeredData: [WeightsRequest]) {
+    func didRegisterWeights(registeredData: [WeightsRequest], date: Date) {
         DispatchQueue.main.async {
-            for value in registeredData {
-                self.weightData.append(value)
-            }
+            let value = self.weightViewModel.createSectionsFromWeights(weightData: registeredData)
+            self.weightSection.append(contentsOf: value)
             self.tableView.reloadData()
         }
     }
