@@ -1,4 +1,13 @@
+About Project
+---
+This app was developed to improve my knowledge of Swift, UIKit and Firabase. In this app, I learned how integrate Firabase with Swift and UIKit, handle the data, organize it in classes, apply SOLID principles, and display it in a View. The app is focused on gym-related activities, allowing users to register exercises, categorize them, and track their progress in lifting weights.
 
+Requirements
+---
+- macOS
+- Xcode (latest version)
+- Swift 5
+- IOS 16.0 min
 
 <img src="https://github.com/user-attachments/assets/253e9793-25d0-4513-926d-2b869c4eaa66" width="300">
 
